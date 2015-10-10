@@ -35,6 +35,10 @@ session_start();
 <script type="text/javascript" src="js/funcionesABM.js"></script>
 <script type="text/javascript" src="js/funcionesAJAX.js"></script>
 <script type="text/javascript" src="js/funcionesLOGIN.js"></script>
+<script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
+<script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
+<script type="text/javascript" src="js/funcionesMapa.js"></script>
+
         
 
 </head>
@@ -54,7 +58,8 @@ session_start();
 				<!-- li><a href="index.php">Inicio</a></li> -->
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')">Inicio</a> </li>
 				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')">Registrar Invitado</a> </li>	
-				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')">Mostrar Grilla</a> </li>				
+				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')">Mostrar Grilla</a> </li>	
+				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')">Ubicacion</a> </li>			
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>
@@ -75,29 +80,32 @@ session_start();
 	
 	<aside id="sidebar">
 
-	
+		
+
+
 		<section class="widget">
-			<h2 class="widgettitle">Ingresar</h2>
+			<h2 id="titulo" class="widgettitle">Ingresar</h2>
 			<ul>
 				<input type="text" id="nombreUsuario" name="nombreUsuario"  placeholder="Nombre de usuario" value="<?php
 					if(isset($_COOKIE["registro"])){echo $_COOKIE["registrado"];}?>">
 
 				<input type="password" id="contraseña" placeholder="contraseña"  name="contraseña"><br>
 			<label>
-				<input type="checkbox" id="recordar">Recordame
+				<li id="lblRecordar"><input type="checkbox" id="recordar">Recordame</li>
+				<h4 id="usuarioLogueado"></h4>
 			</label>
 				<input type="submit" class= "MiBotonUTN" id="Logout" onclick="logout()" value="LogOut">
 				<input type="submit" class= "MiBotonUTN" id="Login" onclick="login()" value="LogIn">
 			</ul>
-		</section>
-	
-		<!-- /.widget -->
+		</section><!-- /.widget -->
 
-		
+		<section  class="widget clearfix" id="informe">
+			
+			
+		</section>
 		
 						
-	</aside>
-	<!-- /#sidebar -->	
+	</aside>	
 	
 </div>
 <!-- /#pagewrap -->

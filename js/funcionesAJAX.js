@@ -2,7 +2,7 @@ function Mostrar(queMostrar)
 {
 	
 	var funcionAjax=$.ajax({
-		url:"operaciones.php",
+		url:"php/operaciones.php",
 		type:"post",
 		data:{queHago:queMostrar}
 	});

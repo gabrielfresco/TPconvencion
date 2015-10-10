@@ -30,13 +30,13 @@ if(isset($_SESSION['usuarioActual']))
 
 									<td> <input type="text"  minlength="4"  id="apellidoInvitado" title="Se necesita el apellido del invitado"  class="form-control" placeholder="Apellido" pattern="[a-zA-Z]*+" required="" autofocus=""></td>
 
-									<td><input type="number"  minlength="7"  id="dniInvitado" title="Se el dni del invitaado"  class="form-control" placeholder="Dni" required  autofocus=""></td>	
+									<td><input type="number" min="1000000" max="99999990" minlength="7"  id="dniInvitado" title="Se el dni del invitaado"  class="form-control" placeholder="Dni" required  autofocus=""></td>	
 
 									<td> <input type="radio" id="masculino" name="sexo" value="M" checked> M<input type="radio" id="femenino" name="sexo" value="F">F</td>			
 									<td><select id="empresa" name="empresa"  placeholder="empresa">
 											<?php
-												require_once("clases/empresa.php");
-												require_once("clases/AccesoDatos.php");
+												require_once("../clases/empresa.php");
+												require_once("../clases/AccesoDatos.php");
 
 												$empresas = empresa::TraerTodasLasEmpresas();
 												foreach ($empresas as $emp) 

@@ -3,9 +3,9 @@
 session_start();
 if(isset($_SESSION['usuarioActual']))
 {
-	require_once("clases/invitado.php");
-	require_once("clases/empresa.php");
-	require_once("clases/AccesoDatos.php");
+	require_once("../clases/invitado.php");
+	require_once("../clases/empresa.php");
+	require_once("../clases/AccesoDatos.php");
 	$invitados = invitado::TraerTodosLosInvitados();
 
 

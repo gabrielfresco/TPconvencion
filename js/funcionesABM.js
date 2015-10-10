@@ -9,7 +9,7 @@
         	        	
         	
         	
-        		var funcionAjax = $.ajax({url:"operaciones.php", type:"post",
+        		var funcionAjax = $.ajax({url:"php/operaciones.php", type:"post",
 					data:
 					{
 						id:id,
@@ -42,7 +42,7 @@
    function borrarInvitado(valor)
 		{
 		  	  
-		  var funcionAjax = $.ajax({ type:"post",url:"operaciones.php",
+		  var funcionAjax = $.ajax({ type:"post",url:"php/operaciones.php",
 					data:
 					{
 						queHago:"borrar",
@@ -67,9 +67,11 @@
 
 function modificarInvitado(valor)
 		{	
+			Mostrar('RegistrarInvitado');
+			 		
 			
 			var funcionAjax = $.ajax({
-					url:"operaciones.php", type:"POST",
+					url:"php/operaciones.php", type:"POST",
 					data:
 					{
 						queHago:"TraerInvitado",
@@ -80,37 +82,34 @@ function modificarInvitado(valor)
 				
 
 
-			  		funcionAjax.done(function(resultado){			  			
-			  			
-						var inv =JSON.parse(resultado);
+			   		funcionAjax.done(function(resultado){	
+
+			  			var inv = JSON.parse(resultado);
 						
-						
-						$("#idInvitado").val(inv.id);
-						$("#nombreInvitado").val(inv.nombre);
+						alert(inv.nombre);
+			 		 	$("#idInvitado").val(inv.id);
+			 		 	$("#nombreInvitado").val(inv.nombre);
 						$("#apellidoInvitado").val(inv.apellido);
-						// if(inv.sexo='M')
-						// 	{
-						// 		$('#masculino').attr('checked', true);
-						// 	}
-						// 	else
-						// 	{
-						// 		$('#femenino').attr('checked', true);
-						// 	}
+			 		 	if(inv.sexo='M')
+			 		 		{
+			 		 			$('#masculino').attr('checked', true);
+			 		 		}
+			 		 		else
+			 		 		{
+			 		 			$('#femenino').attr('checked', true);
+			 		 		}
 								
-						// $("#dniInvitado").val(inv.dni);
-						// $("#empresa").val(inv.idEmpresa);
+			 		 	$("#dniInvitado").val(inv.dni);
+			 		 	$("#empresa").val(inv.idEmpresa);
 						
 												
 					});
 						
 							
-					funcionAjax.fail(function(resultado){	
-						alert("No se ha modificado");
+			 		funcionAjax.fail(function(resultado){	
+			 			alert("No se ha modificado");
 		
-					});	
-
-					Mostrar('RegistrarInvitado');
-								
-
-					
+			 		});						
 		}
+
+
