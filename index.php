@@ -57,6 +57,7 @@ session_start();
 			<ul id="main-nav" class="clearfix">
 				<!-- li><a href="index.php">Inicio</a></li> -->
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')">Inicio</a> </li>
+				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarUsuario')">Registrar Usuario</a> </li>
 				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')">Registrar Invitado</a> </li>	
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')">Mostrar Grilla</a> </li>	
 				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')">Ubicacion</a> </li>			

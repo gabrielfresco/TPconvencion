@@ -2,6 +2,8 @@
 
 	require_once("../clases/invitado.php");
 	require_once("../clases/AccesoDatos.php");
+	require_once("../clases/encriptadora.php");
+	require_once("../clases/usuario.php");
 	
 $quehago = $_POST['queHago'];
 
@@ -26,9 +28,28 @@ switch ($quehago) {
 		echo true;
 		break;
 
+	case 'GuardarUsuario':
+		$contraEncriptada = encriptadora::Encriptar($_POST['contra']);;
+		$usr = new usuario();
+		$usr->id = $_POST['id'];
+		$usr->nombre = $_POST['nom'];		
+		$usr->contraseña = $contraEncriptada; 
+		$usr->mail = $_POST['mail'];		
+		$usr->idEmpresa = $_POST['emp'];
+		$cantidad = $usr->GuardarUsuario();
+
+		echo true;
+		break;
+
+
 	case 'MostrarGrilla':
 			include("../partes/grilla.php");
 			break;
+
+	case 'RegistrarUsuario':
+			include("../partes/registarUsuario.php");
+			break;
+			
 
 	case 'VerEnMapa':
 			include("../partes/formMapaGoogle.php");
@@ -44,6 +65,11 @@ switch ($quehago) {
 
 	case 'TraerInvitado':
 			$invitado = invitado::TraerInvitadoPorId($_POST['id']);		
+			echo json_encode($invitado[0]);
+		break;
+
+	case 'TraerUsuario':
+			$invitado = usuario::TraerUsuarioPorId($_POST['id']);		
 			echo json_encode($invitado[0]);
 		break;
 			

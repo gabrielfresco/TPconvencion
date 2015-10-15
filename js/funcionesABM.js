@@ -65,16 +65,16 @@
 			
 		}
 
-function modificarInvitado(valor)
+function modificarUsuario(valor)
 		{	
-			Mostrar('RegistrarInvitado');
+			Mostrar('RegistrarUsuario');
 			 		
 			
 			var funcionAjax = $.ajax({
 					url:"php/operaciones.php", type:"POST",
 					data:
 					{
-						queHago:"TraerInvitado",
+						queHago:"TraerUsuario",
 						id:valor
 
 					}
@@ -84,23 +84,15 @@ function modificarInvitado(valor)
 
 			   		funcionAjax.done(function(resultado){	
 
-			  			var inv = JSON.parse(resultado);
+			  			var usr = JSON.parse(resultado);
 						
-						alert(inv.sexo);
-			 		 	$("#idInvitado").val(inv.id);
-			 		 	$("#nombreInvitado").val(inv.nombre);
-						$("#apellidoInvitado").val(inv.apellido);			 		 	
-			 		 		
-			 		 	 if(inv.sexo == "F")
-            					$('input:radio[name="sexo"][value="F"]').prop('checked', true);
-       						 else
-            					$('input:radio[name="sexo"][value="M"]').prop('checked', true);				 		 			
-			 		 		
-								
-			 		 	$("#dniInvitado").val(inv.dni);
-			 		 	$("#empresa").val(inv.idEmpresa);
-						
-												
+						alert(usr.sexo);
+			 		 	$("#idUsuario").val(usr.id);
+			 		 	$("#nombreUsuario").val(usr.nombre);
+						$("#mail").val(usr.mail);		 								
+			 		 	$("#contraseña").val(usr.contraseña);
+			 		 	$("#empresa").val(usr.idEmpresa);
+																		
 					});
 						
 							
@@ -109,5 +101,45 @@ function modificarInvitado(valor)
 		
 			 		});						
 		}
+
+
+ function GuardarUsuario()
+        {
+        	var id = $("#idUsuario").val();
+        	var nombre=$("#nombreUsuario").val();
+        	var mail=$("#mail").val();
+        	var contra=$("#contraseña").val();
+        	var emp=$("#empresa").val();
+        	
+        	        	
+        	
+        	
+        	var funcionAjax = $.ajax({url:"php/operaciones.php", type:"post",
+					data:
+					{
+						id:id,
+						nom: nombre,
+						mail:mail,						
+						contra: contra,
+						empresa: emp,
+						queHago:"GuardarUsuario"
+
+				}
+			});
+
+        		funcionAjax.done(function(resultado){
+
+						console.log(resultado);						
+						Mostrar('RegistrarUsuario');														
+					});
+						
+							
+					funcionAjax.fail(function(resultado){	
+						alert("No se ha dado de alta");
+		
+					});	
+        	
+        	}
+
 
 
