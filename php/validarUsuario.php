@@ -2,6 +2,7 @@
 
 	include_once("../clases/usuario.php");
 	include_once("../clases/AccesoDatos.php");
+	include_once("../clases/encriptadora.php");
 
 session_start();
 	

@@ -57,9 +57,7 @@
 			   		funcionAjax.done(function(resultado){	
 
 			  			var inv = JSON.parse(resultado);
-						
-						alert( inv.sexo);
-
+					
 			 		 	$("#idInvitado").val(inv.id);
 			 		 	$("#nombreInvitado").val(inv.nombre);
 						$("#apellidoInvitado").val(inv.apellido);			 		 	
@@ -76,7 +74,7 @@
 												
 					});
 						
-							.0
+							
 							
 			 		funcionAjax.fail(function(resultado){	
 			 			alert("No se ha modificado");
