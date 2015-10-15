@@ -86,18 +86,16 @@ function modificarInvitado(valor)
 
 			  			var inv = JSON.parse(resultado);
 						
-						alert(inv.nombre);
+						alert(inv.sexo);
 			 		 	$("#idInvitado").val(inv.id);
 			 		 	$("#nombreInvitado").val(inv.nombre);
-						$("#apellidoInvitado").val(inv.apellido);
-			 		 	if(inv.sexo='M')
-			 		 		{
-			 		 			$('#masculino').attr('checked', true);
-			 		 		}
-			 		 		else
-			 		 		{
-			 		 			$('#femenino').attr('checked', true);
-			 		 		}
+						$("#apellidoInvitado").val(inv.apellido);			 		 	
+			 		 		
+			 		 	 if(inv.sexo == "F")
+            					$('input:radio[name="sexo"][value="F"]').prop('checked', true);
+       						 else
+            					$('input:radio[name="sexo"][value="M"]').prop('checked', true);				 		 			
+			 		 		
 								
 			 		 	$("#dniInvitado").val(inv.dni);
 			 		 	$("#empresa").val(inv.idEmpresa);
