@@ -17,6 +17,7 @@
 				});
 				
 				funcionAjax.done(function(resultado){
+						console.log(resultado);
 						if(resultado==1)
 						{
 							$("#contraseña").hide();

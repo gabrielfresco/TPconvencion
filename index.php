@@ -97,6 +97,7 @@ session_start();
 			</label>
 				<input type="submit" class= "MiBotonUTN" id="Logout" onclick="logout()" value="LogOut">
 				<input type="submit" class= "MiBotonUTN" id="Login" onclick="login()" value="LogIn">
+				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
 			</ul>
 		</section><!-- /.widget -->
 

@@ -38,6 +38,52 @@
         	}
 
 
+   function modificarInvitado(valor)
+		{	
+			Mostrar('RegistrarInvitado');
+			 		
+			
+			var funcionAjax = $.ajax({
+					url:"php/operaciones.php", type:"POST",
+					data:
+					{
+						queHago:"TraerInvitado",
+						id:valor
+
+					}
+				});				
+
+
+			   		funcionAjax.done(function(resultado){	
+
+			  			var inv = JSON.parse(resultado);
+						
+						alert( inv.sexo);
+
+			 		 	$("#idInvitado").val(inv.id);
+			 		 	$("#nombreInvitado").val(inv.nombre);
+						$("#apellidoInvitado").val(inv.apellido);			 		 	
+			 		 		
+			 		 	if(inv.sexo == "F")
+            					$('input:radio[name="sexo"][value="F"]').prop('checked', true);
+       						 else
+            					$('input:radio[name="sexo"][value="M"]').prop('checked', true);				 		 			
+			 		 		
+								
+			 		 	$("#dniInvitado").val(inv.dni);
+			 		 	$("#empresa").val(inv.idEmpresa);
+						
+												
+					});
+						
+							.0
+							
+			 		funcionAjax.fail(function(resultado){	
+			 			alert("No se ha modificado");
+		
+			 		});						
+		}
+
 
    function borrarInvitado(valor)
 		{
@@ -140,6 +186,46 @@ function modificarUsuario(valor)
 					});	
         	
         	}
+
+  function CambiarContraUsuario()
+  {
+
+  		var mail = $('#mail').val();
+  		var contra = $('#contra').val();
+  		var contra2 = $('#contraConfirmar').val();
+
+  		var funcionAjax = $.ajax({
+					url:"php/operaciones.php", type:"POST",
+					data:
+					{
+						queHago:"TraerUsuarioPorMail",
+						mail:mail,
+						contra:contra,
+						contra2:contra2
+
+					}
+				});
+				
+
+
+			   		funcionAjax.done(function(resultado){	
+
+			  			console.log(resultado);
+			  			if(resultado == true)
+			  				alert("Cambiada con exito");
+			  			else
+			  				alert("No se pudo cambiar");
+																		
+					});
+						
+							
+			 		funcionAjax.fail(function(resultado){	
+			 			alert("No se ha modificado");
+		
+			 		});						
+
+
+  }
 
 
 

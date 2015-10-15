@@ -33,9 +33,9 @@ switch ($quehago) {
 		$usr = new usuario();
 		$usr->id = $_POST['id'];
 		$usr->nombre = $_POST['nom'];		
-		$usr->contraseña = $contraEncriptada; 
+		$usr->contrasenia = $contraEncriptada; 
 		$usr->mail = $_POST['mail'];		
-		$usr->idEmpresa = $_POST['emp'];
+		$usr->idEmpresa = $_POST['empresa'];
 		$cantidad = $usr->GuardarUsuario();
 
 		echo true;
@@ -63,14 +63,31 @@ switch ($quehago) {
 			include("../partes/registrarInvitado.php");
 			break;
 
+	case 'CambiarContra':
+			include("../partes/cambiarContra.php");
+			break;
+
 	case 'TraerInvitado':
 			$invitado = invitado::TraerInvitadoPorId($_POST['id']);		
 			echo json_encode($invitado[0]);
 		break;
 
 	case 'TraerUsuario':
-			$invitado = usuario::TraerUsuarioPorId($_POST['id']);		
-			echo json_encode($invitado[0]);
+			$usr = usuario::TraerUsuarioPorId($_POST['id']);		
+			echo json_encode($usr[0]);
+		break;
+
+	case 'TraerUsuarioPorMail':
+			$usr = usuario::TraerUsuarioPorMail($_POST['mail']);
+			if($_POST['contra']== $_POST['contra2'])
+			{
+			$contraEncriptada = encriptadora::Encriptar($_POST['contra']);;	
+			$usr[0]->contrasenia = $contraEncriptada;	
+			$usr[0]->modificarContra();
+			echo true;
+			}
+			else
+				echo false;
 		break;
 			
 	default:

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2015 a las 17:03:49
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
+-- Tiempo de generación: 15-10-2015 a las 20:10:34
+-- Versión del servidor: 5.6.24
+-- Versión de PHP: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -57,7 +57,7 @@ BEGIN
     INSERT INTO invitados(nombre,apellido,dni,sexo,idEmpresa)   VALUES(nomb,ape,d,sex,idEmp);
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarUsuario`(IN `paramNombre` VARCHAR(25), IN `paramContra` VARCHAR(25), IN `paramMail` VARCHAR(50), IN `paramIdEmp` INT(1))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarUsuario`(IN `paramNombre` VARCHAR(25), IN `paramContra` VARCHAR(100), IN `paramMail` VARCHAR(50), IN `paramIdEmp` INT(1))
     NO SQL
 INSERT INTO usuarios VALUES(null,paramNombre,paramContra,paramMail, paramIdEmp)$$
 
@@ -69,6 +69,10 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `invitadoTxId`(IN `paramId` INT)
     NO SQL
 SELECT * FROM invitados WHERE id=paramId$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarContra`(IN `paramMail` VARCHAR(50), IN `paramContra` VARCHAR(100))
+    NO SQL
+UPDATE usuarios SET contrasenia=paramContra WHERE mail=paramMail$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarInvitado`(IN `paramId` INT(1), IN `paramNom` VARCHAR(25), IN `paramApe` VARCHAR(25), IN `paramDni` INT(8), IN `paramSexo` VARCHAR(1), IN `paramIdEmp` INT(1))
 BEGIN
@@ -83,11 +87,11 @@ BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarUsuario`(IN `paramId` INT, IN `paramNombre` VARCHAR(25), IN `paramContra` VARCHAR(25), IN `paramMail` VARCHAR(50), IN `paramIdEmp` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarUsuario`(IN `paramId` INT, IN `paramNombre` VARCHAR(25), IN `paramContra` VARCHAR(100), IN `paramMail` VARCHAR(50), IN `paramIdEmp` INT)
     NO SQL
 UPDATE usuarios SET  nombre=paramNombre,contraseña=paramContra, mail=paramMail, idEmpresa=paramIdEmp WHERE id=paramId$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `usuarios_TxNombre`(IN nom VARCHAR(25))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usuarios_TxNombre`(IN `nom` VARCHAR(25))
 BEGIN
 
 SELECT * FROM usuarios where nombre=nom;
@@ -98,6 +102,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `usuarioTxId`(IN `paramId` INT)
     NO SQL
 SELECT * FROM usuarios WHERE id=paramId$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usuarioTxMail`(IN `paramMail` VARCHAR(50))
+    NO SQL
+SELECT * FROM usuarios WHERE mail=paramMail$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -107,7 +115,7 @@ DELIMITER ;
 --
 
 CREATE TABLE IF NOT EXISTS `empresas` (
-`idEmpresa` int(11) NOT NULL,
+  `idEmpresa` int(11) NOT NULL,
   `nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
@@ -127,13 +135,13 @@ INSERT INTO `empresas` (`idEmpresa`, `nombre`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `invitados` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nombre` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
   `apellido` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
   `dni` int(8) NOT NULL,
   `sexo` varchar(1) COLLATE latin1_spanish_ci NOT NULL,
   `idEmpresa` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `invitados`
@@ -141,7 +149,8 @@ CREATE TABLE IF NOT EXISTS `invitados` (
 
 INSERT INTO `invitados` (`id`, `nombre`, `apellido`, `dni`, `sexo`, `idEmpresa`) VALUES
 (54, 'Gabi', 'Fresco', 38404676, 'M', 1),
-(55, 'Nuevo', ' Invitado', 1231221, 'F', 3);
+(57, 'Nuevo', 'Invitado', 13132131, 'F', 3),
+(58, 'dasdas', 'dadsa', 13123131, 'F', 2);
 
 -- --------------------------------------------------------
 
@@ -150,20 +159,19 @@ INSERT INTO `invitados` (`id`, `nombre`, `apellido`, `dni`, `sexo`, `idEmpresa`)
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nombre` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
-  `contraseña` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
+  `contrasenia` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `mail` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `idEmpresa` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `contraseña`, `mail`, `idEmpresa`) VALUES
-(3, 'Gabifresco09', 'valida123', '', 0),
-(4, 'anda', 'adsada', 'sadasd', 1);
+INSERT INTO `usuarios` (`id`, `nombre`, `contrasenia`, `mail`, `idEmpresa`) VALUES
+(12, 'Gabifresco09', 'af892f709c31ca7df60e932d79b5a260', 'dsada@asdas', 1);
 
 --
 -- Índices para tablas volcadas
@@ -173,19 +181,19 @@ INSERT INTO `usuarios` (`id`, `nombre`, `contraseña`, `mail`, `idEmpresa`) VALU
 -- Indices de la tabla `empresas`
 --
 ALTER TABLE `empresas`
- ADD PRIMARY KEY (`idEmpresa`);
+  ADD PRIMARY KEY (`idEmpresa`);
 
 --
 -- Indices de la tabla `invitados`
 --
 ALTER TABLE `invitados`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -195,17 +203,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `invitados`
 --
 ALTER TABLE `invitados`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

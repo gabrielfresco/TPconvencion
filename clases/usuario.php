@@ -1,8 +1,9 @@
 <?php
-	class usuario
+	
+    class usuario
 	{
 		public $nombre;
-		public $contraseña;
+		public $contrasenia;
         public $mail;
         public $id;
         public $idEmpresa;
@@ -15,7 +16,7 @@
 
          public function GetContraseña()
         {
-            return $this->contraseña;
+            return $this->contrasenia;
 
         }
 
@@ -33,9 +34,10 @@
 
         public static function validarUsuario($nom, $contra)
         {
+            
+            $resultado =  usuario::TraerUsuarioPorNombre($nom); 
 
-            $resultado=  usuario::TraerUsuarioPorNombre($nom); 
-            if($resultado[0]->nombre ==$nom && $resultado[0]->contraseña == $contra)
+            if($resultado[0]->nombre == $nom && $resultado[0]->contrasenia == $contra)
                 return true;
             else
                 return false;
@@ -53,14 +55,23 @@
 
         }
 
+           public static function TraerUsuarioPorMail($mail)
+        {
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+            $consulta =$objetoAccesoDato->RetornarConsulta("CALL usuarioTxMail('$mail')");
+            $consulta->execute();           
+            return $consulta->fetchAll(PDO::FETCH_CLASS, "usuario"); 
+
+        }
+
 
 
     public function InsertarUsuarioConParametros()
      {
                 $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-                  $consulta =$objetoAccesoDato->RetornarConsulta("CALL insertarUsuario(:paramNombre,:paramContraseña,:paramMail,:paramnIdEmpresa)");
+                  $consulta =$objetoAccesoDato->RetornarConsulta("CALL insertarUsuario(:paramNombre,:paramContrasenia,:paramMail,:paramnIdEmpresa)");
                 $consulta->bindValue(':paramNombre',$this->nombre, PDO::PARAM_STR);
-                $consulta->bindValue(':paramContraseña', $this->contraseña, PDO::PARAM_STR);
+                $consulta->bindValue(':paramContrasenia', $this->contrasenia, PDO::PARAM_STR);
                 $consulta->bindValue(':paramMail', $this->mail, PDO::PARAM_INT);              
                 $consulta->bindValue(':paramnIdEmpresa', $this->idEmpresa, PDO::PARAM_INT);
                 $consulta->execute();       
@@ -89,6 +100,16 @@
            $consulta->bindValue(':paramMail', $this->mail, PDO::PARAM_STR);    
            $consulta->bindValue(':paramContraseña', $this->contraseña, PDO::PARAM_STR);
            $consulta->bindValue(':paramIdEmpresa', $this->idEmpresa, PDO::PARAM_INT);
+        
+            return $consulta->execute();
+     }
+
+     public function modificarContra()
+     {
+           $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+           $consulta =$objetoAccesoDato->RetornarConsulta("CALL modificarContra(:paramMail,:paramContra)");       
+           $consulta->bindValue(':paramMail', $this->mail, PDO::PARAM_STR);    
+           $consulta->bindValue(':paramContra', $this->contrasenia, PDO::PARAM_STR);
         
             return $consulta->execute();
      }

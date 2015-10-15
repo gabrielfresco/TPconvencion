@@ -7,8 +7,8 @@ session_start();
 	
 	$recor = $_POST['recordarme'];
 	$usuario = $_POST['usuario'];
-
-if(usuario::validarUsuario($usuario,$_POST['clave']))
+	$contraEncriptada = encriptadora::Encriptar($_POST['clave']);
+if(usuario::validarUsuario($usuario,$contraEncriptada))
 {
 
 	$_SESSION['usuarioActual']=$_POST['usuario'];
