@@ -1,8 +1,8 @@
 
 
 <?php 
-session_start();
-if(isset($_SESSION['usuarioActual']))
+
+if(validadora::TieneSesionValida())
 {
 	require_once("../clases/invitado.php");
 	require_once("../clases/empresa.php");

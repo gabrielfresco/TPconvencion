@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once("clases/validadora.php");
 ?>
 
 <!doctype html>
@@ -13,10 +13,12 @@ session_start();
 <title>Convencion</title>
 
  <link rel="stylesheet" type="text/css" href="css/estilo.css">
+ <!--  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+ <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
  
 <!-- main css -->
  <link href="css/style.css" rel="stylesheet" type="text/css">
-
 <!-- media queries css -->
 <link href="css/media-queries.css" rel="stylesheet" type="text/css">
 
@@ -56,8 +58,7 @@ session_start();
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<!-- li><a href="index.php">Inicio</a></li> -->
-				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')">Inicio</a> </li>
-				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarUsuario')">Registrar Usuario</a> </li>
+				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')">Inicio</a> </li>			
 				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')">Registrar Invitado</a> </li>	
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')">Mostrar Grilla</a> </li>	
 				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')">Ubicacion</a> </li>			
@@ -95,8 +96,9 @@ session_start();
 				<li id="lblRecordar"><input type="checkbox" id="recordar">Recordame</li>
 				<h4 id="usuarioLogueado"></h4>
 			</label>
-				<input type="submit" class= "MiBotonUTN" id="Logout" onclick="logout()" value="LogOut">
-				<input type="submit" class= "MiBotonUTN" id="Login" onclick="login()" value="LogIn">
+				<input type="button" class= "MiBotonUTN" id="Logout" onclick="logout()" value="LogOut">
+				<input type="button" class= "MiBotonUTN" id="Login" onclick="login()" value="LogIn">				
+				<input type="button" class= "MiBotonUTN" id="Registrarse" onclick="Mostrar('RegistrarUsuario')" value="Registrarse">				
 				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
 			</ul>
 		</section><!-- /.widget -->

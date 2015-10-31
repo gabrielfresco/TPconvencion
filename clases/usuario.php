@@ -7,6 +7,8 @@
         public $mail;
         public $id;
         public $idEmpresa;
+        public $foto;
+
 		
         public function GetNombre()
         {
@@ -69,11 +71,12 @@
     public function InsertarUsuarioConParametros()
      {
                 $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-                  $consulta =$objetoAccesoDato->RetornarConsulta("CALL insertarUsuario(:paramNombre,:paramContrasenia,:paramMail,:paramnIdEmpresa)");
+                  $consulta =$objetoAccesoDato->RetornarConsulta("CALL insertarUsuario(:paramNombre,:paramContrasenia,:paramMail,:paramnIdEmpresa, :paramFoto)");
                 $consulta->bindValue(':paramNombre',$this->nombre, PDO::PARAM_STR);
                 $consulta->bindValue(':paramContrasenia', $this->contrasenia, PDO::PARAM_STR);
                 $consulta->bindValue(':paramMail', $this->mail, PDO::PARAM_INT);              
                 $consulta->bindValue(':paramnIdEmpresa', $this->idEmpresa, PDO::PARAM_INT);
+                $consulta->bindValue(':paramFoto', $this->foto, PDO::PARAM_STR);
                 $consulta->execute();       
                 return $objetoAccesoDato->RetornarUltimoIdInsertado();
      }

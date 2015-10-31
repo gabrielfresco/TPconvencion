@@ -154,26 +154,28 @@ function modificarUsuario(valor)
         	var mail=$("#mail").val();
         	var contra=$("#contraseña").val();
         	var emp=$("#empresa").val();
+        	var foto=$("#foto")[0].files[0];
         	
         	        	
-        	
         	
         	var funcionAjax = $.ajax({url:"php/operaciones.php", type:"post",
 					data:
 					{
+						queHago:"GuardarUsuario",
 						id:id,
 						nom: nombre,
 						mail:mail,						
 						contra: contra,
 						empresa: emp,
-						queHago:"GuardarUsuario"
+						//foto:foto						
 
-				}
+				},
+				
 			});
 
         		funcionAjax.done(function(resultado){
 
-						console.log(resultado);						
+						console.log(resultado);					
 						Mostrar('RegistrarUsuario');														
 					});
 						

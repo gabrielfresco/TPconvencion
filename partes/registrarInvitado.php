@@ -1,8 +1,6 @@
-
-
 <?php 
-session_start();
-if(isset($_SESSION['usuarioActual']))
+
+if(validadora::TieneSesionValida())
 {
 	
 
@@ -15,8 +13,8 @@ if(isset($_SESSION['usuarioActual']))
 				<h2>Informacion del Invitado</h2>
 			</header>	
 				<form onsubmit="GuardarInvitado();return false">
-				<div class="miTabla">
-						<table>
+				<div >
+						<table class='table table-hover '>
 							
 								<tr>
 									<td width='22%'>  Nombre     </td>

@@ -6,9 +6,10 @@
         	var laClave=$("#contraseña").val();
         	var recordar = $("#recordar").is(':checked');
 
-        	var funcionAjax = $.ajax({url:"php/validarUsuario.php", type:"POST",
+        	var funcionAjax = $.ajax({url:"php/operaciones.php", type:"POST",
 					data:
 					{
+						queHago:"ValidarUsuario",
 						usuario: elUsuario,
 						clave:laClave,
 						recordarme:recordar
@@ -18,7 +19,7 @@
 				
 				funcionAjax.done(function(resultado){
 						console.log(resultado);
-						if(resultado==1)
+						if(resultado)
 						{
 							$("#contraseña").hide();
 							$("#recordar").hide();

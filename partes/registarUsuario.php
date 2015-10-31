@@ -3,19 +3,21 @@
 			<header>
 				<h2>Registrarse</h2>
 			</header>	
-				<form onsubmit="GuardarUsuario();return false">
-				<div class="miTabla">
-						<table>
-							
+				<form onsubmit="GuardarUsuario();return false"  enctype="multipart/form-data">
+				<div >
+						<table class="table table-striped">
+							<thead>
 								<tr>
 									<td width='25%'>  Nombre de Usuario    </td>
 									<td width='25%'>  Contraseña  </td>
 									<td width='25%'>  Mail  </td>
 									<td width='25%'>  Empresa  </td>
 												
-								</tr> 
+								</tr>
+						</thead>
+							<tbody>	
 								<tr>
-									<td><input type="text" minlength="4" title="Se necesita el nombre del usuario" id="nombreUsuario" name="nombre"required autofocus="" pattern="[a-zA-Z]*+" placeholder="Nombre"></td></td>
+									<td><input type="text"  minlength="4" title="Se necesita el nombre del usuario" id="nombreUsuario" name="nombre"required autofocus="" pattern="[a-zA-Z]*+" placeholder="Nombre"></td></td>
 
 									<td> <input type="password"  minlength="4"  id="contraseña" title="Ingrese contraseña"  class="form-control" placeholder="Contraseña" pattern="[a-zA-Z0-9]*+" required="" autofocus=""></td>
 
@@ -34,12 +36,16 @@
 												}
 											?>
 										</select>
-									</td>	
+									</td>
+
+
 									 <input type="hidden"  id="idUsuario">						
-								</tr>							
-						</table>								
+								</tr>	
+							</tbody>						
+						</table>	
+
 					</div>	
-					
+								Foto<input type="file"  id="foto" title="Debe tener una foto"  class="form-control" required  autofocus="">	
 									<input type="submit"  class= "MiBotonUTNInvitado" id="guardarUsuario" value="Registrarse" >
 			</form>		
 
