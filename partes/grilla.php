@@ -11,20 +11,19 @@ if(validadora::TieneSesionValida())
 
 
  ?>
- <div class="miTabla">
-	<table>
-		
+	<table class="table table-hover">
+		<thead>
 			<tr>
-				<td width='15%'>  Nombre     </td>
-				<td width='15%'>  Apellido  </td>
-				<td width='15%'>  Dni  </td>
-				<td width='5%'>  Sexo  </td>
-				<td width='20%'>  Empresa  </td>
-				<td width='15%'>  Modificar     </td>
-				<td width='15%'>  Borrar  </td>
+				<td>  Nombre     </td>
+				<td>  Apellido  </td>
+				<td>  Dni  </td>
+				<td>  Sexo  </td>
+				<td>  Empresa  </td>
+				<td>  Modificar     </td>
+				<td>  Borrar  </td>
 			</tr> 
-
-
+		</thead>	
+		<tbody>
 		<?php 
 
 foreach ($invitados as $inv){
@@ -37,12 +36,13 @@ foreach ($invitados as $inv){
 					<td>$inv->dni</td>
 					<td>$inv->sexo</td>";
 		echo  		"<td>".$emp[0]->nombre."</td>";
-		echo"		<td><a id='modificar' class='MiBotonUTNlistado' onclick=modificarInvitado($inv->id)> Modificar </a></td>
-                    <td><a id='borrar' class='MiBotonUTNlistado' onclick='borrarInvitado($inv->id)'> Borrar </a></td> 
+		echo"		<td><a id='modificar' class='btn btn-warning' onclick=modificarInvitado($inv->id)> Modificar </a></td>
+                    <td><a id='borrar' class='btn btn-danger' onclick='borrarInvitado($inv->id)'> Borrar </a></td> 
 				</tr>";
 
 	}	
 		 ?>	
+		 </tbody>
 </table>
 </div>
 

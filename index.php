@@ -15,8 +15,16 @@ require_once("clases/validadora.php");
  <link rel="stylesheet" type="text/css" href="css/estilo.css">
  <!--  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
- <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
- 
+ <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="application/x-font-ttf" href="css/fonts/glyphicons-halflings-regular.ttf">
+  <link rel="stylesheet" type="application/x-font-woff" href="css/fonts/glyphicons-halflings-regular.woff">
+  <link rel="stylesheet" type="application/octet-stream" href="css/fonts/glyphicons-halflings-regular.woff2">
+  <link rel="stylesheet" type="application/vnd.ms-fontobject" href="css/fonts/glyphicons-halflings-regular.eot">
+    <link rel="stylesheet" type="application/octet-stream" href="css/fonts/glyphicons-halflings-regular.woff2">
+
 <!-- main css -->
  <link href="css/style.css" rel="stylesheet" type="text/css">
 <!-- media queries css -->
@@ -98,7 +106,9 @@ require_once("clases/validadora.php");
 			</label>
 				<input type="button" class= "MiBotonUTN" id="Logout" onclick="logout()" value="LogOut">
 				<input type="button" class= "MiBotonUTN" id="Login" onclick="login()" value="LogIn">				
-				<input type="button" class= "MiBotonUTN" id="Registrarse" onclick="Mostrar('RegistrarUsuario')" value="Registrarse">				
+				<input type="button" class= "MiBotonUTN" id="Registrarse" onclick="Mostrar('RegistrarUsuario')" value="Registrarse">
+				<a class="btn btn-info " name="guardar" onclick="Validar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
+				
 				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
 			</ul>
 		</section><!-- /.widget -->
