@@ -229,3 +229,38 @@ function modificarUsuario(valor)
 
 
 
+  function insertarQueja()
+        {
+        	var email = $("#emailQueja").val();
+        	var problema=$("#problema").val();
+        	        	        	
+        	
+        	
+
+        		var funcionAjax = $.ajax({url:"php/operaciones.php", type:"post",
+					data:
+					{
+						email:email,
+						problema: problema,						
+						queHago:"GuardarQueja"
+
+				}
+			});
+
+        		funcionAjax.done(function(resultado){
+
+						console.log(resultado);	
+						$("#emailQueja").val("");		
+						$("#problema").val("");														
+					});
+						
+							
+					funcionAjax.fail(function(resultado){	
+						alert("No se pudo enviar la queja");
+		
+					});	
+        	
+        	}
+
+
+

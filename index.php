@@ -117,6 +117,30 @@ require_once("clases/validadora.php");
 			
 			
 		</section>
+
+		<section  class="widget clearfix" id="quejas">
+			<h4>Informar problema</h4>
+			<form >
+				<div class="form-group">
+					<label>Correo electronico</label>
+					<input  class="form form-control" title="Ingrese su correo por favor"  type="email"  name="emailQueja" id="emailQueja" required>	
+				</div>
+
+				<div class="form-group">
+					<label>Problema</label>
+					<textarea class="form form-control" title="Detalle su problema"  rows="4" cols="50" maxlength="200" id="problema" required >
+					</textarea>
+				</div>
+
+
+				<div class="form-group">
+					  <input type="button" class= "MiBotonUTN" id="GuardarQueja" value="Informar" onclick="insertarQueja()">
+				</div>
+				
+			</form>
+			
+		</section>
+
 		
 						
 	</aside>	

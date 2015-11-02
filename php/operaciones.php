@@ -5,6 +5,7 @@
 	require_once("../clases/encriptadora.php");
 	require_once("../clases/usuario.php");
 	require_once("../clases/validadora.php");
+	require_once("../clases/quejas.php");
 
 	
 $quehago = $_POST['queHago'];
@@ -26,6 +27,16 @@ switch ($quehago) {
 		$inv->sexo = $_POST['sexo'];
 		$inv->idEmpresa = $_POST['idEmp'];		
 		$cantidad = $inv->GuardarInvitado();
+
+		echo true;
+		break;
+
+	case 'GuardarQueja':
+		$queja = new queja();
+		$queja->problema = $_POST['problema'];
+		$queja->fecha = date('y-m-d');
+		$queja->mail = $_POST['email'];			
+		$cantidad = $queja->InsertarQueja();
 
 		echo true;
 		break;

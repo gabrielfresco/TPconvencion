@@ -6,17 +6,17 @@
 				<form onsubmit="GuardarUsuario();return false"  enctype="multipart/form-data">
 				
 						<div class="form-group">
-						    <label for="exampleInputEmail1">Nombre de usuario</label>
+						    <label>Nombre de usuario</label>
 						    <input class="form form-control" type="text"  minlength="4" title="Se necesita el nombre del usuario" id="nombreUsuario" name="nombre"required autofocus="" pattern="[a-zA-Z]*+" placeholder="Nombre">
 						</div>
 
 						<div class="form-group">
-						    <label for="exampleInputEmail1">Contraseña</label>
+						    <label>Contraseña</label>
 							<input class="form form-control" type="password"  minlength="4"  id="contraseña" title="Ingrese contraseña"  class="form-control" placeholder="Contraseña" pattern="[a-zA-Z0-9]*+" required="" autofocus="">
 						</div>
 						
 						<div class="form-group">
-						    <label for="exampleInputEmail1">Correo electronico</label>
+						    <label >Correo electronico</label>
 							<input class="form form-control" type="email"  id="mail" title="Ingrese un mail"  class="form-control" placeholder="E mail" required  autofocus="">
 						</div>
 
