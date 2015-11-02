@@ -96,6 +96,8 @@ require_once("clases/validadora.php");
 		<section class="widget">
 			<h2 id="titulo" class="widgettitle">Ingresar</h2>
 			<ul>
+				<label id="lblOculto"></label>
+				
 				<input type="text" id="nombreUsuario" name="nombreUsuario"  placeholder="Nombre de usuario" value="<?php
 					if(isset($_COOKIE["registro"])){echo $_COOKIE["registrado"];}?>">
 
@@ -112,11 +114,7 @@ require_once("clases/validadora.php");
 				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
 			</ul>
 		</section><!-- /.widget -->
-
-		<section  class="widget clearfix" id="informe">
-			
-			
-		</section>
+	
 
 		<section  class="widget clearfix" id="quejas">
 			<h4>Informar problema</h4>

@@ -10,18 +10,6 @@
         public $foto;
 
 		
-        public function GetNombre()
-        {
-            return $this->nombre;
-
-        }
-
-         public function GetContraseña()
-        {
-            return $this->contrasenia;
-
-        }
-
 
 	 public static function TraerUsuarioPorNombre($nomb)
    		{
@@ -39,10 +27,16 @@
             
             $resultado =  usuario::TraerUsuarioPorNombre($nom); 
 
+           if($resultado !=null)
+           {
             if($resultado[0]->nombre == $nom && $resultado[0]->contrasenia == $contra)
-                return true;
+                return true;            
+               else
+                return false;
+            }
             else
                 return false;
+         
 
         }   
 

@@ -1,5 +1,4 @@
  <div id="contenedor">
-      <button type="button" id="btnGuardar" class="MiBotonUTNInvitado" onclick="Geolocalizacion.Marcador.guardar()" title="Guarda en un archivo de texto">Descargar mi marcador</button>
         <div id="mostrarMapa" style="height: 650px;">
              <script async defer src="https://maps.google.com/maps/api/js?signed_in=true&callback=Geolocalizacion.Marcador.iniciar"></script>
         </div>

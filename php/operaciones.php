@@ -136,6 +136,8 @@ switch ($quehago) {
 
 	case 'TraerUsuarioPorMail':
 			$usr = usuario::TraerUsuarioPorMail($_POST['mail']);
+			if($usr!= null)
+			{
 			if($_POST['contra']== $_POST['contra2'])
 			{
 			$contraEncriptada = encriptadora::Encriptar($_POST['contra']);;	
@@ -144,6 +146,9 @@ switch ($quehago) {
 			echo true;
 			}
 			else
+				echo false;
+			}
+			else 
 				echo false;
 		break;
 

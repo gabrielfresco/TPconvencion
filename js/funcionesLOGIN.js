@@ -21,21 +21,23 @@
 						console.log(resultado);
 						if(resultado)
 						{
-							$("#contraseña").hide();
-							$("#recordar").hide();
-							$("#nombreUsuario").hide();
-							$("#lblRecordar").hide();
-							$("#Login").hide();
-							$("#titulo").html("Usuario Logueado");
-							$("#informe").html("Bienvenido " + elUsuario);
-							// window.location="index.php";
+							 $("#contraseña").hide();
+							 $("#recordar").hide();
+							 $("#nombreUsuario").hide();
+							 $("#lblRecordar").hide();
+							 $("#Login").hide();
+							 $("#Registrarse").hide();
+							 $("#titulo").html("Bienvenido");
+							 $("#lblOculto").html(elUsuario);
+							
+							
 
 						}
 						else
 						{
-							$("#informe").show();
-							$("#informe").html("Usuario no registrado");
-							//alert("Usuario no registrado, reingrese");
+							$("#info").show();
+							$("#lblOculto").html("Usuario no registrado");
+							
 						} 
 					}); 	
 			
@@ -59,7 +61,7 @@
 				$("#titulo").html("Ingresar");		
 				$("#nombreUsuario").val("");
 				$("#contraseña").val("");
-				$("#informe").hide();							
+				$("#info").hide();							
 			
 			});	
 
