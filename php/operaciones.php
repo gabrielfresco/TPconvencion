@@ -100,7 +100,7 @@ switch ($quehago) {
 		$usr->contrasenia = $contraEncriptada; 
 		$usr->mail = $_POST['mail'];		
 		$usr->idEmpresa = $_POST['empresa'];
-		$usr->foto = "dsadas.jpg";//$_FILES['foto']['name'];
+		$usr->foto = "piedra.jpg";//$_FILES['foto']['name'];
 		$cantidad = $usr->GuardarUsuario();
 
 		echo true;

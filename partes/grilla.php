@@ -36,8 +36,9 @@ foreach ($invitados as $inv){
 					<td>$inv->dni</td>
 					<td>$inv->sexo</td>";
 		echo  		"<td>".$emp[0]->nombre."</td>";
-		echo"		<td><a id='modificar' class='btn btn-warning' onclick=modificarInvitado($inv->id)> Modificar </a></td>
-                    <td><a id='borrar' class='btn btn-danger' onclick='borrarInvitado($inv->id)'> Borrar </a></td> 
+
+		echo"	<td><a id='modificar' class='btn btn-warning' onclick=modificarInvitado($inv->id)><span class='glyphicon glyphicon-pencil'>&nbsp;</span> Modificar </a></td>
+                <td><a id='borrar' class='btn btn-danger' onclick='borrarInvitado($inv->id)'><span class='glyphicon glyphicon-trash'>&nbsp;</span> Borrar </a></td> 
 				</tr>";
 
 	}	

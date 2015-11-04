@@ -46,7 +46,9 @@
 						<input type="hidden" id="idUsuario">		
 						
 						<div class="form-group">
-						   	<input type="submit"  class= "btn btn-info" id="guardarUsuario" value="Registrarse" >	
+							<button type="submit" class= "btn btn-info" id="guardarUsuario">
+								<span class='glyphicon glyphicon-save'>&nbsp;</span>Guardar
+							</button>						   
 						</div>	
 									
 

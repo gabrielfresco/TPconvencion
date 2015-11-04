@@ -67,7 +67,10 @@ if(validadora::TieneSesionValida())
 				    <input type="hidden"  id="idInvitado">						
 														
 					<div class="form-group">
-					   <input  type="submit"  class= "btn btn-info" id="agregarInvitado" value="Guardar" >
+						<button type="submit" class= "btn btn-info" id="agregarInvitado">
+							<span class='glyphicon glyphicon-save'>&nbsp;</span>Enviar
+						</button>
+					 
 					</div>
 									
 									

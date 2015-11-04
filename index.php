@@ -17,14 +17,10 @@ require_once("clases/validadora.php");
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
- <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="application/x-font-ttf" href="css/fonts/glyphicons-halflings-regular.ttf">
-  <link rel="stylesheet" type="application/x-font-woff" href="css/fonts/glyphicons-halflings-regular.woff">
-  <link rel="stylesheet" type="application/octet-stream" href="css/fonts/glyphicons-halflings-regular.woff2">
-  <link rel="stylesheet" type="application/vnd.ms-fontobject" href="css/fonts/glyphicons-halflings-regular.eot">
-    <link rel="stylesheet" type="application/octet-stream" href="css/fonts/glyphicons-halflings-regular.woff2">
 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!-- main css -->
  <link href="css/style.css" rel="stylesheet" type="text/css">
 <!-- media queries css -->
@@ -66,18 +62,19 @@ require_once("clases/validadora.php");
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<!-- li><a href="index.php">Inicio</a></li> -->
-				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')">Inicio</a> </li>			
-				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')">Registrar Invitado</a> </li>	
-				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')">Mostrar Grilla</a> </li>	
-				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')">Ubicacion</a> </li>
+				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')"><span class='glyphicon glyphicon-home'>&nbsp;</span>Inicio</a> </li>			
+				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Registrar Invitado</a> </li>	
+				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Mostrar Grilla</a> </li>	
+				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')"><span class='glyphicon glyphicon-road'>&nbsp;</span>Ubicacion</a> </li>
+				
+				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')"><span class='glyphicon glyphicon-user'>&nbsp;</span>Ver perfil</a> </li>	
+
 				<li class="miLi">
 					<select onchange="Perfil('<?php echo $_SESSION['usuarioActual'];?>')" class="form form-control" id="perfilUsuario" name="perfilUsuario">
 						<option value="VerPerfil">Ver perfil</option>
 						<option value="ModificarUsuario">Modificar</option>						
 					</select>
 				</li>
-				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')">Ver perfil</a> </li>	
-				
 							
 			</ul>
 			<!-- /#main-nav --> 
@@ -103,7 +100,7 @@ require_once("clases/validadora.php");
 
 
 		<section class="widget">
-			<h2 id="titulo" class="widgettitle">Ingresar</h2>
+			<h2 id="titulo" class="widgettitle">Panel de control</h2>
 			<ul>
 				<h4 id="lblOculto"></h4>
 				
@@ -115,11 +112,11 @@ require_once("clases/validadora.php");
 				<li id="lblRecordar"><input type="checkbox" id="recordar">Recordame</li>
 				
 			</label>
-				<input type="button" class= "MiBotonUTN" id="Logout" onclick="logout()" value="LogOut">
-				<input type="button" class= "MiBotonUTN" id="Login" onclick="login()" value="LogIn">				
-				<input type="button" class= "MiBotonUTN" id="Registrarse" onclick="Mostrar('RegistrarUsuario')" value="Registrarse">
+								
 				
-				
+				<a id='Login' class='btn btn-info form form-control' onclick="login()"><span class='glyphicon glyphicon-ok'>&nbsp;</span> LogIn </a>
+				<a id='Registrarse' class='btn btn-info form form-control' onclick="Mostrar('RegistrarUsuario')"><span class='glyphicon glyphicon-home'>&nbsp;</span> Registrarse </a>
+				<a id='Logout' class='btn btn-info form form-control' onload=""onclick="logout()"><span class='glyphicon glyphicon-off'>&nbsp;</span> LogOut </a>
 				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
 			</ul>
 		</section><!-- /.widget -->
@@ -141,7 +138,7 @@ require_once("clases/validadora.php");
 
 
 				<div class="form-group">
-					  <input type="button" class= "MiBotonUTN" id="GuardarQueja" value="Informar" onclick="insertarQueja()">
+					  <a id='GuardarQueja' class='btn btn-danger form form-control' onclick="insertarQueja()"><span class='glyphicon glyphicon-envelope'>&nbsp;</span> Informar </a>
 				</div>
 				
 			</form>

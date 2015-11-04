@@ -27,6 +27,8 @@
 							 $("#lblRecordar").hide();
 							 $("#Login").hide();
 							 $("#Registrarse").hide();
+							  $("#lblOculto").hide();
+							  
 							 $("#titulo").html("Bienvenido " + elUsuario);
 							
 							
@@ -59,7 +61,7 @@
 				$("#Login").show();	
 				$("#usuarioLogueado").hide();
 				$("#lblOculto").hide();
-				$("#titulo").html("Ingresar");		
+				$("#titulo").html("Panel de control");		
 				$("#nombreUsuario").val("");
 				$("#contraseña").val("");
 				$("#info").hide();							

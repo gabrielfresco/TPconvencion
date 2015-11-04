@@ -27,13 +27,14 @@ if(validadora::TieneSesionValida())
 		
 		$emp = empresa::TraerEmpresaPorId($usr[0]->idEmpresa);
 		$foto= $usr[0]->foto;
+		
 		echo " 	<tr>";
 		echo		"<td>".$usr[0]->nombre."</td>";
 		echo		"<td>".$usr[0]->mail."</td>";			
 		echo  		"<td>".$emp[0]->nombre."</td>";
 		echo		"<td><img height='20' width='20' src='fotos/$foto'></td>";
-		echo 		"<td><a id='modificar' class='btn btn-warning' onclick='modificarUsuario(".$usr[0]->id.")'> Modificar </a></td>";
-        echo        "<td><a id='borrar' class='btn btn-danger' onclick='borrarUsuario(".$usr[0]->id.")'> Borrar </a>.</td>";
+		echo 		"<td><a id='modificar' class='btn btn-warning' onclick='modificarUsuario(".$usr[0]->id.")'><span class='glyphicon glyphicon-pencil'>&nbsp;</span> Modificar </a></td>";
+        echo        "<td><a id='borrar' class='btn btn-danger' onclick='borrarUsuario(".$usr[0]->id.")'><span class='glyphicon glyphicon-trash'>&nbsp;</span> Borrar </a>.</td>";
 		echo		"</tr>";
 
 		
