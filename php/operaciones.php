@@ -170,7 +170,7 @@ switch ($quehago) {
 			break;
 
 	case 'VerPerfil':
-				include("../partes/grillaUsuario.php");
+				include("../partes/perfilUsuario.php");
 			break;	
 			
 		break;
