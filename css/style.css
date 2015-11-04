@@ -71,7 +71,7 @@ h1, h2, h3, h5, h6 {
 	color: #FFFFFF;
 }
 h1 {
-	font-size: 2em;
+	font-size: 5em;
 }
 h2 {
 	font-size: 1.6em;
@@ -90,6 +90,11 @@ h5 {
 }
 h6 {
 	font-size: 1em;
+}
+
+textarea{
+	resize: none;
+
 }
 
 /* reset webkit search input styles */

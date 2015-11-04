@@ -1,32 +1,28 @@
 <?php
 require_once("clases/validadora.php");
+//require_once"partes/referencias.php";
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
 
-<!-- disable iPhone inital scale -->
+<title><font size="100">Convencion</font></title>
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
 
-<title>Convencion</title>
 
- <link rel="stylesheet" type="text/css" href="css/estilo.css">
- <!--  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
- <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
- <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<!-- main css -->
- <link href="css/style.css" rel="stylesheet" type="text/css">
-<!-- media queries css -->
 <link href="css/media-queries.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 
 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,12 +65,7 @@ require_once("clases/validadora.php");
 				
 				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')"><span class='glyphicon glyphicon-user'>&nbsp;</span>Ver perfil</a> </li>	
 
-				<li class="miLi">
-					<select onchange="Perfil('<?php echo $_SESSION['usuarioActual'];?>')" class="form form-control" id="perfilUsuario" name="perfilUsuario">
-						<option value="VerPerfil">Ver perfil</option>
-						<option value="ModificarUsuario">Modificar</option>						
-					</select>
-				</li>
+				
 							
 			</ul>
 			<!-- /#main-nav --> 
@@ -123,8 +114,8 @@ require_once("clases/validadora.php");
 	
 
 		<section  class="widget clearfix" id="quejas">
-			<h4>Informar problema</h4>
-			<form >
+			<h2>Informar problema</h2>
+			<form  onsubmit="insertarQueja(); return false">
 				<div class="form-group">
 					<label>Correo electronico</label>
 					<input  class="form form-control" title="Ingrese su correo por favor"  type="email"  name="emailQueja" id="emailQueja" required>	
@@ -132,13 +123,15 @@ require_once("clases/validadora.php");
 
 				<div class="form-group">
 					<label>Problema</label>
-					<textarea class="form form-control" title="Detalle su problema"  rows="4" cols="50" maxlength="200" id="problema" required >
+					<textarea class="form form-control" required title="Detalle su problema" rows="3" maxlength="200" id="problema">
 					</textarea>
 				</div>
 
 
 				<div class="form-group">
-					  <a id='GuardarQueja' class='btn btn-danger form form-control' onclick="insertarQueja()"><span class='glyphicon glyphicon-envelope'>&nbsp;</span> Informar </a>
+					<button type="submit" class= "btn btn-danger form form-control" id="GuardarQueja">
+							<span class='glyphicon glyphicon-envelope'>&nbsp;</span>Informar
+					</button>					 
 				</div>
 				
 			</form>
