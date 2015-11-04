@@ -91,12 +91,13 @@
      public function ModificarUsuarioConParametros()
      {
             $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-            $consulta =$objetoAccesoDato->RetornarConsulta("CALL modificarUsuario(:paramId,:paramNombre,:paramContraseña,:paramMail,:paramIdEmpresa)");
+            $consulta =$objetoAccesoDato->RetornarConsulta("CALL modificarUsuario(:paramId,:paramNombre,:paramContrasenia,:paramMail,:paramIdEmpresa, :paramFoto)");
            $consulta->bindValue(':paramId', $this->id, PDO::PARAM_INT);
            $consulta->bindValue(':paramNombre',$this->nombre, PDO::PARAM_STR);
            $consulta->bindValue(':paramMail', $this->mail, PDO::PARAM_STR);    
-           $consulta->bindValue(':paramContraseña', $this->contraseña, PDO::PARAM_STR);
+           $consulta->bindValue(':paramContrasenia', $this->contrasenia, PDO::PARAM_STR);
            $consulta->bindValue(':paramIdEmpresa', $this->idEmpresa, PDO::PARAM_INT);
+           $consulta->bindValue(':paramFoto', $this->foto, PDO::PARAM_STR);
         
             return $consulta->execute();
      }

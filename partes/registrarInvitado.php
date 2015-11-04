@@ -49,7 +49,7 @@ if(validadora::TieneSesionValida())
 					<div class="form-group">
 					    <label>Empresa a la que pertenece</label>
 
-					    <select  class="form form-control" id="empresa" name="empresa"  placeholder="empresa">
+					    <select  class="form form-control" id="empresa" name="empresa" >
 								<?php
 									require_once("../clases/empresa.php");
 									require_once("../clases/AccesoDatos.php");

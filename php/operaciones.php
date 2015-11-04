@@ -18,6 +18,14 @@ switch ($quehago) {
 		echo $resultado;
 		break;
 
+	case 'borrarUsuario':
+		$usr = new usuario();
+		$usr->id = $_POST['id'];
+		$resultado = $usr->BorrarUsuario();
+		echo $resultado;
+		break;	
+	
+
 	case 'GuardarInvitado':
 		$inv = new invitado();
 		$inv->id = $_POST['id'];
@@ -160,6 +168,13 @@ switch ($quehago) {
 			else 
 				echo false;
 			break;
+
+	case 'VerPerfil':
+				include("../partes/grillaUsuario.php");
+			break;	
+			
+		break;
+
 			
 	default:
 		# code...

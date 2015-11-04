@@ -111,39 +111,40 @@
 
 function modificarUsuario(valor)
 		{	
-			Mostrar('RegistrarUsuario');
-			 		
-			
-			var funcionAjax = $.ajax({
+
+			Mostrar("RegistrarUsuario");
+				var funcionAjax = $.ajax({
 					url:"php/operaciones.php", type:"POST",
 					data:
 					{
 						queHago:"TraerUsuario",
-						id:valor
+						id:valor						
 
 					}
 				});
 				
 
 
-			   		funcionAjax.done(function(resultado){	
+			   	funcionAjax.done(function(resultado){	
 
-			  			var usr = JSON.parse(resultado);
-						
-						alert(usr.sexo);
-			 		 	$("#idUsuario").val(usr.id);
-			 		 	$("#nombreUsuario").val(usr.nombre);
-						$("#mail").val(usr.mail);		 								
-			 		 	$("#contraseña").val(usr.contraseña);
-			 		 	$("#empresa").val(usr.idEmpresa);
+			   		var usr = JSON.parse(resultado);
+			   		
+			  		$("#idUsuario").val(usr.id);
+        			$("#nombreUsuario").val(usr.nombre);
+        			$("#mail").val(usr.mail);
+        			// $("#contraseña").val(usr.contrasenia); no lo cargo porque sino lo modifica toma el valor que esta encriptado y cambia la contraseña verdadera
+        			$("#empresa").val(usr.idEmpresa);
 																		
 					});
-						
+					
+					
+					
 							
 			 		funcionAjax.fail(function(resultado){	
 			 			alert("No se ha modificado");
 		
-			 		});						
+			 		});				
+								
 		}
 
 
@@ -186,6 +187,33 @@ function modificarUsuario(valor)
 					});	
         	
         	}
+
+
+          function borrarUsuario(valor)
+		{
+		  	  
+		  var funcionAjax = $.ajax({ type:"post",url:"php/operaciones.php",
+					data:
+					{
+						queHago:"borrarUsuario",
+						id:valor
+
+					}
+				});
+
+					funcionAjax.done(function(resultado){
+
+						alert("Tu usuario a dejado de existir");					
+						window.location="php/logout.php";														
+					});
+						
+							
+					funcionAjax.fail(function(resultado){	
+						alert("No se ha borrado");
+		
+					});		 	
+			
+		}
 
   function CambiarContraUsuario()
   {

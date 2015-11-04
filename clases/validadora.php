@@ -37,7 +37,7 @@ session_start();
 		{
 			$ahora = date("y-m-d h:m:s");
 			$tiempo = strtotime($ahora) - strtotime($_SESSION['ultimoIngreso']);
-			if($tiempo<60)
+			if($tiempo<20)
 			{
 				$_SESSION['ultimoIngreso'] = date("y-m-d h:m:s");
 				return true;	
@@ -46,6 +46,8 @@ session_start();
 		}
 		else 
 		{
+			
+			$_SESSION = null;
 			session_destroy();
 			return false;
 		}

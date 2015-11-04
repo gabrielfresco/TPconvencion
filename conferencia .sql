@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2015 a las 18:33:25
+-- Tiempo de generación: 04-11-2015 a las 01:07:30
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -91,9 +91,9 @@ BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarUsuario`(IN `paramId` INT, IN `paramNombre` VARCHAR(25), IN `paramContra` VARCHAR(100), IN `paramMail` VARCHAR(50), IN `paramIdEmp` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarUsuario`(IN `paramId` INT, IN `paramNombre` VARCHAR(25), IN `paramContra` VARCHAR(100), IN `paramMail` VARCHAR(50), IN `paramIdEmp` INT, IN `paramFoto` VARCHAR(50))
     NO SQL
-UPDATE usuarios SET  nombre=paramNombre,contraseña=paramContra, mail=paramMail, idEmpresa=paramIdEmp WHERE id=paramId$$
+UPDATE usuarios SET  nombre=paramNombre,contrasenia=paramContra, mail=paramMail, idEmpresa=paramIdEmp, foto=paramFoto WHERE id=paramId$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `usuarios_TxNombre`(IN `nom` VARCHAR(25))
 BEGIN
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `invitados` (
   `dni` int(8) NOT NULL,
   `sexo` varchar(1) COLLATE latin1_spanish_ci NOT NULL,
   `idEmpresa` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `invitados`
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `quejas` (
   `mail` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `problema` longtext COLLATE latin1_spanish_ci NOT NULL,
   `fecha` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `quejas`
@@ -187,14 +187,14 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `mail` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `idEmpresa` int(11) NOT NULL,
   `foto` varchar(50) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `contrasenia`, `mail`, `idEmpresa`, `foto`) VALUES
-(12, 'Gabifresco09', 'af892f709c31ca7df60e932d79b5a260', 'dsada@asdas', 1, '');
+(17, 'Gabi', '81dc9bdb52d04dc20036dbd8313ed055', 'gabriel.fresco@yahoo.com.ar', 2, 'piedra.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -237,17 +237,17 @@ ALTER TABLE `empresas`
 -- AUTO_INCREMENT de la tabla `invitados`
 --
 ALTER TABLE `invitados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT de la tabla `quejas`
 --
 ALTER TABLE `quejas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

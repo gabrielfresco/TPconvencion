@@ -69,7 +69,16 @@ require_once("clases/validadora.php");
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')">Inicio</a> </li>			
 				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')">Registrar Invitado</a> </li>	
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')">Mostrar Grilla</a> </li>	
-				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')">Ubicacion</a> </li>			
+				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')">Ubicacion</a> </li>
+				<li class="miLi">
+					<select onchange="Perfil('<?php echo $_SESSION['usuarioActual'];?>')" class="form form-control" id="perfilUsuario" name="perfilUsuario">
+						<option value="VerPerfil">Ver perfil</option>
+						<option value="ModificarUsuario">Modificar</option>						
+					</select>
+				</li>
+				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')">Ver perfil</a> </li>	
+				
+							
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>
@@ -82,10 +91,10 @@ require_once("clases/validadora.php");
 	<div id="content">
 
 		
-		
+		<!-- /#content --> 
 
 	</div>
-	<!-- /#content --> 
+	
 	
 	
 	<aside id="sidebar">
@@ -96,7 +105,7 @@ require_once("clases/validadora.php");
 		<section class="widget">
 			<h2 id="titulo" class="widgettitle">Ingresar</h2>
 			<ul>
-				<label id="lblOculto"></label>
+				<h4 id="lblOculto"></h4>
 				
 				<input type="text" id="nombreUsuario" name="nombreUsuario"  placeholder="Nombre de usuario" value="<?php
 					if(isset($_COOKIE["registro"])){echo $_COOKIE["registrado"];}?>">
@@ -104,12 +113,12 @@ require_once("clases/validadora.php");
 				<input type="password" id="contraseña" placeholder="contraseña"  name="contraseña"><br>
 			<label>
 				<li id="lblRecordar"><input type="checkbox" id="recordar">Recordame</li>
-				<h4 id="usuarioLogueado"></h4>
+				
 			</label>
 				<input type="button" class= "MiBotonUTN" id="Logout" onclick="logout()" value="LogOut">
 				<input type="button" class= "MiBotonUTN" id="Login" onclick="login()" value="LogIn">				
 				<input type="button" class= "MiBotonUTN" id="Registrarse" onclick="Mostrar('RegistrarUsuario')" value="Registrarse">
-				<a class="btn btn-info " name="guardar" onclick="Validar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
+				
 				
 				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
 			</ul>

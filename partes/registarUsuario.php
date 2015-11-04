@@ -41,7 +41,9 @@
 						<div class="form-group">
 						    <label for="exampleInputEmail1">Foto</label>
 							<input class="form form-control" type="file"  id="foto" title="Debe tener una foto"  class="form-control" required  autofocus="">
-						</div>			
+						</div>	
+
+						<input type="hidden" id="idUsuario">		
 						
 						<div class="form-group">
 						   	<input type="submit"  class= "btn btn-info" id="guardarUsuario" value="Registrarse" >	

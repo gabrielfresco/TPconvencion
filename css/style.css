@@ -17,7 +17,7 @@ img, fieldset {
 img {
 	width: 500px;
 	max-width: 100%;
-	height: auto;
+	/*height: auto;
 	width: auto\9; /* ie8 */
 }
 
@@ -58,6 +58,12 @@ li {
 	padding: 0;
 }
 
+.miLi
+{
+	margin: 0 0 .5em 0;
+	padding: 0;
+	float:right;
+}
 /* headings */
 h1, h2, h3, h5, h6 {
 	line-height: 1.4em;
