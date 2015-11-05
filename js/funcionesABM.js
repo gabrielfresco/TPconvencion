@@ -155,8 +155,9 @@ function modificarUsuario(valor)
         	var mail=$("#mail").val();
         	var contra=$("#contraseña").val();
         	var emp=$("#empresa").val();
-        	var foto=$("#foto")[0].files[0];
-        	
+        	var foto = $("#foto")[0].files[0].name;
+        	var formData = new FormData($("#formUsuario")[0]);	
+			      	
         	        	
         	
         	var funcionAjax = $.ajax({url:"php/operaciones.php", type:"post",
@@ -167,19 +168,21 @@ function modificarUsuario(valor)
 						nom: nombre,
 						mail:mail,						
 						contra: contra,
-						empresa: emp,
-						//foto:foto						
+						empresa: emp,						
+						foto:foto					
 
 				},
 				
 			});
 
         		funcionAjax.done(function(resultado){
-
-						console.log(resultado);					
+        				
+						subirFoto(formData);				
 						Mostrar('RegistrarUsuario');														
 					});
 						
+
+        	
 							
 					funcionAjax.fail(function(resultado){	
 						alert("No se ha dado de alta");
@@ -292,3 +295,27 @@ function modificarUsuario(valor)
 
 
 
+
+	function subirFoto(formData){
+			$.ajax({
+			    url: 'php/subirFoto.php',  
+			    type: 'POST',
+			    data: formData,			    
+			    cache: false,//Para subir archivos via ajax
+			    contentType: false,//Para subir archivos via ajax
+			    processData: false,//Para subir archivos via ajax
+			    beforeSend: function(){
+			        $("#mensaje").html("Subiendo imagen");    
+			    },
+			    success: function(data){
+			    	 console.log(data);
+			        // $("#mensaje").html("Imagen subida correctamente");
+			        $("#foto").attr("src", "fotos/"+data);
+			        
+			    },
+			    error: function(data){
+			    	console.log(data);
+			        $("#mensaje").html("Error al subir imagen");			        
+			    }
+			});
+		}

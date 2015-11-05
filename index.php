@@ -62,11 +62,8 @@ require_once("clases/validadora.php");
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')"><span class='glyphicon glyphicon-home'>&nbsp;</span>Inicio</a> </li>			
 				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Registrar Invitado</a> </li>	
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Mostrar Grilla</a> </li>	
-				<li><a style="cursor:pointer" onclick="VerEnMapa('Buenos Aires, Avellaneda, Mitre 750')"><span class='glyphicon glyphicon-road'>&nbsp;</span>Ubicacion</a> </li>
-				
-				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')"><span class='glyphicon glyphicon-user'>&nbsp;</span>Ver perfil</a> </li>	
-
-				
+				<li><a style="cursor:pointer" onclick="VerEnMapa()"><span class='glyphicon glyphicon-road'>&nbsp;</span>Ubicacion</a> </li>				
+				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')"><span class='glyphicon glyphicon-user'>&nbsp;</span>Ver perfil</a> </li>			
 							
 			</ul>
 			<!-- /#main-nav --> 

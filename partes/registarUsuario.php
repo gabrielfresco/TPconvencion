@@ -3,7 +3,7 @@
 			<header>
 				<h2>Registrarse</h2>
 			</header>	
-				<form onsubmit="GuardarUsuario();return false"  enctype="multipart/form-data">
+				<form id="formUsuario" onsubmit="GuardarUsuario();return false"  enctype="multipart/form-data">
 				
 						<div class="form-group">
 						    <label>Nombre de usuario</label>
@@ -40,7 +40,7 @@
 												
 						<div class="form-group">
 						    <label for="exampleInputEmail1">Foto</label>
-							<input class="form form-control" type="file"  id="foto" title="Debe tener una foto"  class="form-control" required  autofocus="">
+							<input class="form form-control" type="file"  id="foto" name="foto" title="Debe tener una foto"  class="form-control" required  autofocus="">
 						</div>	
 
 						<input type="hidden" id="idUsuario">		

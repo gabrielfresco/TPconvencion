@@ -50,47 +50,6 @@ switch ($quehago) {
 		break;
 
 	case 'GuardarUsuario':
-		// $tamanio =$_FILES['foto']['size'];
-  //   		if($tamanio>1024000)
-  //   		{
-  //   				echo "Error: archivo muy grande!"."<br>";
-  //   				break;
-  //   		}
-  //   		else
-  //   		{
-  //   			//OBTIENE EL TAMAÑO DE UNA IMAGEN, SI EL ARCHIVO NO ES UNA
-		// 		//IMAGEN, RETORNA FALSE
-		// 		$esImagen = getimagesize($_FILES["foto"]["tmp_name"]);
-		// 		if($esImagen === FALSE) 
-		// 		{
-		// 			echo "Error: No es una imagen!"."<br>";
-  //   				break;
-		// 		}
-		// 		else
-		// 		{
-		// 			$NombreCompleto=explode(".", $_FILES['foto']['name']);
-		// 			$Extension=  end($NombreCompleto);
-		// 			$arrayDeExtValida = array("jpg", "jpeg", "gif", "bmp","png");  //defino antes las extensiones que seran validas
-		// 			if(!in_array($Extension, $arrayDeExtValida))
-		// 			{
-		// 			   echo "Error: Extension no valida!"."<br>";
-  //   				   break;
-		// 			}
-		// 			else
-		// 			{
-		// 				//$destino =  "fotos/".$_FILES["foto"]["name"];
-		// 				$destino = "fotos/". $_FILES['foto']['name'];//.".".$Extension;
-		// 				$foto=$_POST['dni'].".".$Extension;
-		// 				//MUEVO EL ARCHIVO DEL TEMPORAL AL DESTINO FINAL
-  //   					if (move_uploaded_file($_FILES["foto"]["tmp_name"],$destino))
-  //   					{		
-  //     						// echo "ok";
-  //     					} 			
-
-		// 			}
-		// 		}
-		// 	}
-
 
 
 		$contraEncriptada = encriptadora::Encriptar($_POST['contra']);;
@@ -100,7 +59,7 @@ switch ($quehago) {
 		$usr->contrasenia = $contraEncriptada; 
 		$usr->mail = $_POST['mail'];		
 		$usr->idEmpresa = $_POST['empresa'];
-		$usr->foto = "piedra.jpg";//$_FILES['foto']['name'];
+		$usr->foto = $_POST['foto'];//"piedra.jpg";//$_FILES['foto']['name'];
 		$cantidad = $usr->GuardarUsuario();
 
 		echo true;
