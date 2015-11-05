@@ -17,12 +17,12 @@
 						
 						<div class="form-group">
 						    <label >Correo electronico</label>
-							<input class="form form-control" type="email"  id="mail" title="Ingrese un mail"  class="form-control" placeholder="E mail" required  autofocus="">
+							<input class="form form-control" type="email"  id="mail" name="mail" title="Ingrese un mail"  class="form-control" placeholder="E mail" required  autofocus="">
 						</div>
 
 						
 						<div class="form-group">
-						    <label for="exampleInputEmail1">Empresa a la que pertenece</label>
+						    <label>Empresa a la que pertenece</label>
 
 						    <select class="form form-control" id="empresa" name="empresa"  placeholder="empresa">
 								<?php
@@ -39,7 +39,10 @@
 						</div>
 												
 						<div class="form-group">
-						    <label for="exampleInputEmail1">Foto</label>
+						    <label>Foto</label> <br>
+
+						    <img src="fotos/pordefecto.png" class="fotoform" id="imagen" name="imagen"/>
+
 							<input class="form form-control" type="file"  id="foto" name="foto" title="Debe tener una foto"  class="form-control" required  autofocus="">
 						</div>	
 

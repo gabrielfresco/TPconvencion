@@ -156,6 +156,7 @@ function modificarUsuario(valor)
         	var contra=$("#contraseña").val();
         	var emp=$("#empresa").val();
         	var foto = $("#foto")[0].files[0].name;
+        	
         	var formData = new FormData($("#formUsuario")[0]);	
 			      	
         	        	
@@ -171,7 +172,7 @@ function modificarUsuario(valor)
 						empresa: emp,						
 						foto:foto					
 
-				},
+				}
 				
 			});
 
@@ -297,6 +298,7 @@ function modificarUsuario(valor)
 
 
 	function subirFoto(formData){
+			
 			$.ajax({
 			    url: 'php/subirFoto.php',  
 			    type: 'POST',
@@ -305,17 +307,20 @@ function modificarUsuario(valor)
 			    contentType: false,//Para subir archivos via ajax
 			    processData: false,//Para subir archivos via ajax
 			    beforeSend: function(){
-			        $("#mensaje").html("Subiendo imagen");    
+			        $("#mensaje").html("Subiendo imagen");			          
 			    },
 			    success: function(data){
 			    	 console.log(data);
-			        // $("#mensaje").html("Imagen subida correctamente");
-			        $("#foto").attr("src", "fotos/"+data);
+			        
+			        if(data == "Correcto")
+			        	alert("Imagen subida correctamente");
+			        	else
+			        	alert(data);
 			        
 			    },
 			    error: function(data){
 			    	console.log(data);
-			        $("#mensaje").html("Error al subir imagen");			        
+			        alert("Error al subir imagen");			        
 			    }
 			});
 		}

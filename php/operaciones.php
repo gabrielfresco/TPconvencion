@@ -59,7 +59,7 @@ switch ($quehago) {
 		$usr->contrasenia = $contraEncriptada; 
 		$usr->mail = $_POST['mail'];		
 		$usr->idEmpresa = $_POST['empresa'];
-		$usr->foto = $_POST['foto'];//"piedra.jpg";//$_FILES['foto']['name'];
+		$usr->foto =$_POST['mail'].$_POST['foto'];//agrego el mail para que cada foto sea unica 
 		$cantidad = $usr->GuardarUsuario();
 
 		echo true;

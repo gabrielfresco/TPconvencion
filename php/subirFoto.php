@@ -1,15 +1,15 @@
 <?php 
-var_dump($_FILES);
+
 if($_FILES["foto"]['error'])
 		{
-			//error de imagen
+			echo "Error de imagen";
 		}
 		else
 		{
 			$tamanio =$_FILES['foto']['size'];
     		if($tamanio>1024000)
     		{
-    				// "Error: archivo muy grande!"."<br>";
+    				echo "Error: archivo muy grande!"."<br>";
     		}
     		else
     		{
@@ -20,6 +20,7 @@ if($_FILES["foto"]['error'])
 				{
 							//NO ES UNA IMAGEN
 					$res = "No es una imagen";
+					echo $res;
 				}
 				else
 				{
@@ -30,25 +31,29 @@ if($_FILES["foto"]['error'])
 					{
 					   //"Error archivo de extension invalida";
 						$res = "Error, extension invalida";
+						echo $res;
 					}
 					else
 					{
 						//$destino =  "fotos/".$_FILES["foto"]["name"];
-						$destino = "../fotos/". $_FILES['foto']['name'];//.".".$Extension;
-						$foto=$_POST['mail'].".".$Extension;
+						$destino = "../fotos/".$_POST['mail'].$_FILES['foto']['name'];//.$Extension;
+						//$foto=.".".$Extension;
 						//MUEVO EL ARCHIVO DEL TEMPORAL AL DESTINO FINAL
     					if (move_uploaded_file($_FILES["foto"]["tmp_name"],$destino))
     					{		
-      						 $res = $_FILES['foto']['name'];
+      						 $res = "Correcto";
+      						 echo $res;
       					}
       					else
       					{   
       						// algun error;
       						$res = "Error!";
+      						echo $res;
       					}
 					}
 				}
 			}
+
 
 		}
 ?>
