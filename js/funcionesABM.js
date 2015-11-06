@@ -134,7 +134,9 @@ function modificarUsuario(valor)
         			$("#mail").val(usr.mail);
         			// $("#contraseña").val(usr.contrasenia); no lo cargo porque sino lo modifica toma el valor que esta encriptado y cambia la contraseña verdadera
         			$("#empresa").val(usr.idEmpresa);
-																		
+        			//falta que la cargue en el file, no se si se puede     			
+        			
+					$("#imagen").attr("src", "fotos/"+usr.foto);												
 					});
 					
 					

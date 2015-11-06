@@ -1,11 +1,11 @@
  <div id="contenedor">
- 	  <form class = "form-inline">
+ 	  <form class="form-inline">
          <div class="form-group">
             <input class="form-control" type="text"  id="provincia" placeholder="Provincia">
             <input class="form-control" type="text"  id="localidad" placeholder="Localidad">
             <input class="form-control" type="text"  id="direccion" placeholder="Direccion">
 
-            <button type="button" onclick='VerEnMapa()' class= "btn btn-info">
+            <button   onclick='VerEnMapa()' class="btn btn-info form-control">
     			<span class='glyphicon glyphicon-search'>&nbsp;</span>Buscar
     		</button>      	
          </div>

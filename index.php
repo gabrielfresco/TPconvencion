@@ -1,5 +1,7 @@
 <?php
 require_once("clases/validadora.php");
+require_once("clases/invitado.php");
+require_once("clases/accesoDatos.php");
 //
 ?>
 
@@ -28,6 +30,9 @@ require_once("clases/validadora.php");
 <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
 <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
 <script type="text/javascript" src="js/funcionesMapa.js"></script>
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/highcharts/highcharts.js"></script>
+<script src="./bower_components/highcharts/modules/data.js"></script>
 
         
 
@@ -50,13 +55,12 @@ require_once("clases/validadora.php");
 				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Registrar Invitado</a> </li>	
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Mostrar Grilla</a> </li>	
 				<li><a style="cursor:pointer" onclick="VerEnMapa()"><span class='glyphicon glyphicon-road'>&nbsp;</span>Ubicacion</a> </li>				
-				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')"><span class='glyphicon glyphicon-user'>&nbsp;</span>Ver perfil</a> </li>			
-							
+				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')"><span class='glyphicon glyphicon-user'>&nbsp;</span>Ver perfil</a> </li>
+				<li><a style="cursor:pointer" id="estadistica" onclick="MostrarEstadisticas()"><span class='glyphicon glyphicon-user'>&nbsp;</span>Estadisticas</a> </li>		
+
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>
-
-		
 
 	</header>
 	<!-- /#header -->

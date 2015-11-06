@@ -8,6 +8,7 @@ function Mostrar(queMostrar)
 	});
 	funcionAjax.done(function(retorno){
 		$("#content").html(retorno);
+
 			
 	});
 	funcionAjax.fail(function(retorno){
@@ -20,3 +21,60 @@ function Mostrar(queMostrar)
 	});
 }
 
+function MostrarEstadisticas()
+{
+    var funcionAjax=$.ajax({
+        url:"php/operaciones.php",
+        type:"post",
+        data:{queHago:"Estadistica"}
+    });
+    funcionAjax.done(function(retorno){
+        $("#content").html(retorno);
+        Estadisticas();
+
+            
+    });
+    funcionAjax.fail(function(retorno){
+        $("#principal").html(":(");
+        
+    });
+    
+} 
+
+function Estadisticas()
+{
+
+      $(function() {
+    /*
+    * http://www.highcharts.com/demo
+    */
+   
+    /* Oculto la tabla */
+    $("#tabla").hide();
+
+    $('#content').highcharts({     
+        data: {
+            table:'tabla' // id de la tabla
+        },
+        chart: {
+            // type: 'column'
+            type: 'pie' 
+        },
+        title: {
+            text: 'Cantidad de invitados por empresa'
+        },
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Invitados'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    this.point.y + ' ' + this.point.name.toLowerCase();
+            }
+        }
+    });
+    });
+}

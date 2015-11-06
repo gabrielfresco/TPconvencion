@@ -134,6 +134,10 @@ switch ($quehago) {
 			
 		break;
 
+	case 'Estadistica':
+			invitado::tabla("tabla");
+			break;
+
 			
 	default:
 		# code...

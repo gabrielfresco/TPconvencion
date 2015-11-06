@@ -59,6 +59,7 @@
 				$("#nombreUsuario").show();
 				$("#lblRecordar").show();
 				$("#Login").show();	
+				$("#Registrarse").show();
 				$("#usuarioLogueado").hide();
 				$("#lblOculto").hide();
 				$("#titulo").html("Panel de control");		
