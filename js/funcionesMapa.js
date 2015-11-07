@@ -3,26 +3,32 @@ function VerEnMapa()
   var provincia = $("#provincia").val();
   var localidad = $("#localidad").val()
   var direccion = $("#direccion").val();
+   
+  if(provincia !=undefined && provincia != "")
+    var punto = provincia+","+ localidad+","+direccion+", Argentina";  
+    
+    else    
+    var punto = "Buenos Aires,Avellaneda, Mitre 750, Argentina";
   
-  if(provincia !=null)
-  {
-    var punto = provincia+","+ localidad+","+direccion+", Argentina";
-    console.log(punto);
-    }
-    else
-   var punto = "Buenos Aires,Avellaneda, Mitre 750, Argentina";
-
-    var funcionAjax=$.ajax({
+   alert(punto); 
+    var miFuncion=$.ajax({
     url:"php/operaciones.php",
     type:"post",
     data:{
       queHago:"VerEnMapa"
+
     }
   });
-    funcionAjax.done(function(retorno){
-    $("#content").html(retorno);
+    miFuncion.done(function(retorno){
+        $("#content").html(retorno);
         $("#punto").val(punto);
-      //  $("#ID").val(id);
+        $("#ID").val(id);
     
   });
+
+     miFuncion.fail(function(retorno){
+        alert("No anda");  });
 }
+
+
+

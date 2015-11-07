@@ -130,9 +130,7 @@ switch ($quehago) {
 
 	case 'VerPerfil':
 				include("../partes/perfilUsuario.php");
-			break;	
-			
-		break;
+			break;		
 
 	case 'Estadistica':
 			invitado::tabla("tabla");

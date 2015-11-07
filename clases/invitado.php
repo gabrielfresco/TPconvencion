@@ -104,18 +104,26 @@
             
             include("empresa.php");
             
-            $empresas =empresa::TraerTodasLasEmpresas();
+            $empresas =empresa::TraerTodasLasEmpresasConInvitados(); // aca deberia reeplazarlo por un metodo que traiga solo las empresas que tienen algun invitado
 
             foreach ($empresas as $emp) {
                 echo "<tr>";
 
                 echo "<td>$emp->nombre</td>";
-                if($emp->idEmpresa==1)                
-                    echo "<td>$contador1</td>";                
+                if($emp->idEmpresa==1)   
+                    {   
+                        
+                        echo "<td>$contador1</td>";
+                    }             
+                                    
                 else if($emp->idEmpresa ==2)
-                    echo "<td>$contador2</td>";
-                    else
+                {
+                    echo "<td>$contador2</td>";                    
+                }
+                    
+                 else
                         echo "<td>$contador3</td>";
+
                 echo "</tr>";
             }
             

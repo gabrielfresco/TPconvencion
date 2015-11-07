@@ -25,7 +25,17 @@
             $consulta->execute();           
             return $consulta->fetchAll(PDO::FETCH_CLASS, "empresa"); 
 
-        }     
+        }   
+
+
+    public static function TraerTodasLasEmpresasConInvitados()
+        {
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+            $consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerTodasLasEmpresasConInvitados");
+            $consulta->execute();           
+            return $consulta->fetchAll(PDO::FETCH_CLASS, "empresa"); 
+
+        }    
 
      public static function TraerEmpresaPorId($valor)
         {

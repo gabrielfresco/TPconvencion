@@ -53,7 +53,7 @@ require_once("clases/accesoDatos.php");
 				<!-- li><a href="index.php">Inicio</a></li> -->
 				<li><a style="cursor:pointer" onclick="Mostrar('MostrarIndex')"><span class='glyphicon glyphicon-home'>&nbsp;</span>Inicio</a> </li>			
 				<li><a style="cursor:pointer" onclick="Mostrar('RegistrarInvitado')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Registrar Invitado</a> </li>	
-				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Mostrar Grilla</a> </li>	
+				<li><a style="cursor:pointer" onclick="Mostrar('MostrarGrilla')"><span class='glyphicon glyphicon-th-list'>&nbsp;</span>Mostrar Grilla</a> </li>				
 				<li><a style="cursor:pointer" onclick="VerEnMapa()"><span class='glyphicon glyphicon-road'>&nbsp;</span>Ubicacion</a> </li>				
 				<li><a style="cursor:pointer" onclick="Mostrar('VerPerfil')"><span class='glyphicon glyphicon-user'>&nbsp;</span>Ver perfil</a> </li>
 				<li><a style="cursor:pointer" id="estadistica" onclick="MostrarEstadisticas()"><span class='glyphicon glyphicon-user'>&nbsp;</span>Estadisticas</a> </li>		
