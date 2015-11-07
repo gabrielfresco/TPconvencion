@@ -3,12 +3,8 @@
 	include_once("clases/empresa.php");
 	include_once("clases/AccesoDatos.php");
 	include_once("clases/usuario.php");
-		include_once("clases/encriptadora.php");
+		include_once("clases/estadisticas.php");
 
-$usr = usuario::TraerUsuarioPorNombre("Gabifresco09");
-$contraEncriptada = encriptadora::Encriptar("valida123");
-var_dump($usr[0]->contrasenia);
-echo "<br>";
-var_dump($contraEncriptada);
 
+var_dump(estadistica::TraerEstadisticas());
 ?>

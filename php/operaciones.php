@@ -6,6 +6,7 @@
 	require_once("../clases/usuario.php");
 	require_once("../clases/validadora.php");
 	require_once("../clases/quejas.php");
+	require_once("../clases/estadisticas.php");
 
 	
 $quehago = $_POST['queHago'];
@@ -133,7 +134,7 @@ switch ($quehago) {
 			break;		
 
 	case 'Estadistica':
-			invitado::tabla("tabla");
+			estadistica::tabla("tabla");
 			break;
 
 			

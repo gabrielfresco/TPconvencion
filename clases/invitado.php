@@ -79,56 +79,9 @@
 
      }
 
-
      
 
-    public static function tabla($nombre){
-        $invitados = self::TraerTodosLosInvitados();
-
-        $contador1=0;
-        $contador2=0;
-        $contador3=0;
-
-        foreach ($invitados as $inv) {
-           if($inv->idEmpresa ==1)
-            $contador1 = $contador1+1;
-            else if($inv->idEmpresa ==2)
-             $contador2 = $contador2+1;
-            else
-                $contador3 = $contador3+1;
-        }
-
-
-            echo "<table id=\"$nombre\">";
-            echo "<tr><td>Empresa</td><td>Cantidad</td></tr>";
-            
-            include("empresa.php");
-            
-            $empresas =empresa::TraerTodasLasEmpresasConInvitados(); // aca deberia reeplazarlo por un metodo que traiga solo las empresas que tienen algun invitado
-
-            foreach ($empresas as $emp) {
-                echo "<tr>";
-
-                echo "<td>$emp->nombre</td>";
-                if($emp->idEmpresa==1)   
-                    {   
-                        
-                        echo "<td>$contador1</td>";
-                    }             
-                                    
-                else if($emp->idEmpresa ==2)
-                {
-                    echo "<td>$contador2</td>";                    
-                }
-                    
-                 else
-                        echo "<td>$contador3</td>";
-
-                echo "</tr>";
-            }
-            
-        echo "</table>";
-    }
+  
 	
 }
 ?>

@@ -58,7 +58,7 @@ function Estadisticas()
         },
         chart: {
             // type: 'column'
-            type: 'pie' 
+            type: 'column' 
         },
         title: {
             text: 'Cantidad de invitados por empresa'

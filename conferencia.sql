@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2015 a las 01:07:30
+-- Tiempo de generación: 07-11-2015 a las 22:59:45
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -95,6 +95,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarUsuario`(IN `paramId` INT,
     NO SQL
 UPDATE usuarios SET  nombre=paramNombre,contrasenia=paramContra, mail=paramMail, idEmpresa=paramIdEmp, foto=paramFoto WHERE id=paramId$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerEstadisticas`()
+SELECT * FROM estadisticas$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `usuarios_TxNombre`(IN `nom` VARCHAR(25))
 BEGIN
 
@@ -121,7 +124,7 @@ DELIMITER ;
 CREATE TABLE IF NOT EXISTS `empresas` (
   `idEmpresa` int(11) NOT NULL,
   `nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `empresas`
@@ -130,7 +133,19 @@ CREATE TABLE IF NOT EXISTS `empresas` (
 INSERT INTO `empresas` (`idEmpresa`, `nombre`) VALUES
 (1, 'Probrando S.A.'),
 (2, 'Funciona SRL'),
-(3, '3er Empresa ');
+(3, '3er Empresa '),
+(6, 'Nueva'),
+(7, 'Exitosa');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `estadisticas`
+--
+CREATE TABLE IF NOT EXISTS `estadisticas` (
+`nombre` varchar(50)
+,`Cantidad` bigint(21)
+);
 
 -- --------------------------------------------------------
 
@@ -145,14 +160,18 @@ CREATE TABLE IF NOT EXISTS `invitados` (
   `dni` int(8) NOT NULL,
   `sexo` varchar(1) COLLATE latin1_spanish_ci NOT NULL,
   `idEmpresa` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `invitados`
 --
 
 INSERT INTO `invitados` (`id`, `nombre`, `apellido`, `dni`, `sexo`, `idEmpresa`) VALUES
-(54, 'Gabi', 'Fresco', 38404676, 'M', 1);
+(55, 'Gabi', 'Fresco', 38404676, 'M', 2),
+(62, 'dasdas', '123dsadas', 1313311, 'F', 6),
+(63, 'dsadas', 'dasdasda', 13131113, 'F', 7),
+(64, 'Anda', 'dsqdasdsa', 1312311, 'M', 3),
+(65, 'dasda', 'dsadsa', 1313211, 'F', 1);
 
 -- --------------------------------------------------------
 
@@ -165,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `quejas` (
   `mail` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `problema` longtext COLLATE latin1_spanish_ci NOT NULL,
   `fecha` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `quejas`
@@ -187,14 +206,23 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `mail` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `idEmpresa` int(11) NOT NULL,
   `foto` varchar(50) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `contrasenia`, `mail`, `idEmpresa`, `foto`) VALUES
-(17, 'Gabi', '81dc9bdb52d04dc20036dbd8313ed055', 'gabriel.fresco@yahoo.com.ar', 2, 'piedra.jpg');
+(33, 'Gabi', '81dc9bdb52d04dc20036dbd8313ed055', 'gabriel.fresco@yahoo.com.ar', 1, 'gabriel.fresco@yahoo.com.arpiedra.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `estadisticas`
+--
+DROP TABLE IF EXISTS `estadisticas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `estadisticas` AS select `e`.`nombre` AS `nombre`,count(`i`.`idEmpresa`) AS `Cantidad` from (`empresas` `e` join `invitados` `i`) where ((`e`.`idEmpresa` = `i`.`idEmpresa`) and `e`.`idEmpresa` in (select `invitados`.`idEmpresa` from `invitados`)) group by `e`.`nombre`;
 
 --
 -- Índices para tablas volcadas
@@ -232,22 +260,22 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `invitados`
 --
 ALTER TABLE `invitados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
 --
 -- AUTO_INCREMENT de la tabla `quejas`
 --
 ALTER TABLE `quejas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
