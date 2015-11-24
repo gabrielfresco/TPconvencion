@@ -21,23 +21,13 @@
 						console.log(resultado);
 						if(resultado)
 						{
-							 $("#contraseña").hide();
-							 $("#recordar").hide();
-							 $("#nombreUsuario").hide();
-							 $("#lblRecordar").hide();
-							 $("#Login").hide();
-							 $("#Registrarse").hide();
-							  $("#lblOculto").hide();
-							  
-							 $("#titulo").html("Bienvenido " + elUsuario);
-							
-							
-							
+							//location.reload();				
+							MostrarLogin();
 
 						}
 						else
 						{
-							$("#info").show();
+							
 							$("#lblOculto").html("Usuario no registrado");
 							
 						} 
@@ -53,20 +43,10 @@
 			type:"post"		
 			});
 
-			funcionAjax.done(function(retorno){	
-				$("#contraseña").show();					
-				$("#recordar").show();
-				$("#nombreUsuario").show();
-				$("#lblRecordar").show();
-				$("#Login").show();	
-				$("#Registrarse").show();
-				$("#usuarioLogueado").hide();
-				$("#lblOculto").hide();
-				$("#titulo").html("Panel de control");		
-				$("#nombreUsuario").val("");
-				$("#contraseña").val("");
-				$("#info").hide();							
-			
+			funcionAjax.done(function(retorno){
+								
+				location.reload();
+				//MostrarLogin();
 			});	
 
         } 

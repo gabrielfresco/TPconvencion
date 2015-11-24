@@ -34,9 +34,7 @@
 						alert("No se ha dado de alta");
 		
 					});	
-        	
-        	}
-
+        	        	}
 
    function modificarInvitado(valor)
 		{	
@@ -180,8 +178,13 @@ function modificarUsuario(valor)
 
         		funcionAjax.done(function(resultado){
         				
+						if(resultado==="Correcto")
+						{
 						subirFoto(formData);				
-						Mostrar('RegistrarUsuario');														
+						Mostrar('RegistrarUsuario');
+						}
+						else
+						alert(resultado);														
 					});
 						
 
@@ -312,16 +315,16 @@ function modificarUsuario(valor)
 			        $("#mensaje").html("Subiendo imagen");			          
 			    },
 			    success: function(data){
-			    	 console.log(data);
+			    	 //console.log(data);
 			        
-			        if(data == "Correcto")
-			        	alert("Imagen subida correctamente");
-			        	else
+			        if(data != "Correcto")
 			        	alert(data);
+			        	
+			        	
 			        
 			    },
 			    error: function(data){
-			    	console.log(data);
+			    	//console.log(data);
 			        alert("Error al subir imagen");			        
 			    }
 			});

@@ -52,6 +52,14 @@ switch ($quehago) {
 
 	case 'GuardarUsuario':
 
+		$NombreCompleto=explode(".", $_POST['foto']);
+		$Extension=  end($NombreCompleto);
+		$arrayDeExtValida = array("jpg", "jpeg", "gif", "bmp","png");  //defino antes las extensiones que seran validas
+			if(!in_array($Extension, $arrayDeExtValida))
+				echo "Error archivo de extension invalida";						
+				//echo false;
+			else	
+			{
 
 		$contraEncriptada = encriptadora::Encriptar($_POST['contra']);;
 		$usr = new usuario();
@@ -63,7 +71,8 @@ switch ($quehago) {
 		$usr->foto =$_POST['mail'].$_POST['foto'];//agrego el mail para que cada foto sea unica 
 		$cantidad = $usr->GuardarUsuario();
 
-		echo true;
+		echo "Correcto";
+			}
 		break;
 
 
@@ -74,6 +83,10 @@ switch ($quehago) {
 	case 'RegistrarUsuario':
 			include("../partes/registarUsuario.php");
 			break;
+
+	case 'MostrarLogin':
+			include("../partes/panelLogin.php");
+			break;		
 			
 
 	case 'VerEnMapa':

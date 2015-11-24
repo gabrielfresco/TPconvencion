@@ -21,6 +21,29 @@ function Mostrar(queMostrar)
 	});
 }
 
+function MostrarLogin()
+{
+    
+    var funcionAjax=$.ajax({
+        url:"php/operaciones.php",
+        type:"post",
+        data:{queHago:"MostrarLogin"}
+    });
+    funcionAjax.done(function(retorno){
+        $("#panelLogin").html(retorno);
+
+            
+    });
+    funcionAjax.fail(function(retorno){
+        $("#principal").html(":(");
+        
+    });
+    funcionAjax.always(function(retorno){
+        //alert("siempre "+retorno.statusText);
+
+    });
+}
+
 function MostrarEstadisticas()
 {
     var funcionAjax=$.ajax({
@@ -58,7 +81,7 @@ function Estadisticas()
         },
         chart: {
             // type: 'column'
-            type: 'column' 
+            type: 'pie' 
         },
         title: {
             text: 'Cantidad de invitados por empresa'

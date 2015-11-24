@@ -13,7 +13,7 @@ if(validadora::TieneSesionValida())
  
 
 	echo"		<form class='form-horizontal'>
-				<div class='form-inline'>
+				<div class='form-group'>
 				<h3><span class='label label-primary'>Nombre de usuario</span></h3>				
 				<label>".$usr[0]->nombre."</label>	 
 				</div>";

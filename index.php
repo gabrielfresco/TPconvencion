@@ -38,7 +38,7 @@ require_once("clases/accesoDatos.php");
 
 </head>
 
-<body onload="Mostrar('MostrarIndex')">
+<body onload="Mostrar('MostrarIndex'),MostrarLogin()">
 
 <div id="pagewrap">
 
@@ -65,9 +65,7 @@ require_once("clases/accesoDatos.php");
 	</header>
 	<!-- /#header -->
 	
-	<div id="content">
-
-		
+	<div id="content">	
 		<!-- /#content --> 
 
 	</div>
@@ -79,26 +77,8 @@ require_once("clases/accesoDatos.php");
 		
 
 
-		<section class="widget">
-			<h2 id="titulo" class="widgettitle">Panel de control</h2>
-			<ul>
-				<h4 id="lblOculto"></h4>
-				
-				<input type="text" id="nombreUsuario" name="nombreUsuario"  placeholder="Nombre de usuario" value="<?php
-					if(isset($_COOKIE["registro"])){echo $_COOKIE["registrado"];}?>">
-
-				<input type="password" id="contraseña" placeholder="contraseña"  name="contraseña"><br>
-			<label>
-				<li id="lblRecordar"><input type="checkbox" id="recordar">Recordame</li>
-				
-			</label>
-								
-				
-				<a id='Login' class='btn btn-info form form-control' onclick="login()"><span class='glyphicon glyphicon-ok'>&nbsp;</span> LogIn </a>
-				<a id='Registrarse' class='btn btn-info form form-control' onclick="Mostrar('RegistrarUsuario')"><span class='glyphicon glyphicon-home'>&nbsp;</span> Registrarse </a>
-				<a id='Logout' class='btn btn-info form form-control' onload=""onclick="logout()"><span class='glyphicon glyphicon-off'>&nbsp;</span> LogOut </a>
-				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
-			</ul>
+		<section id="panelLogin"class="widget">
+			
 		</section><!-- /.widget -->
 	
 
