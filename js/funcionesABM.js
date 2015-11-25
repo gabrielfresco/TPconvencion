@@ -225,13 +225,15 @@ function modificarUsuario(valor)
 		}
 
   function CambiarContraUsuario(nom)
-  {
+  {	
 
   		var codigo = $('#codigoIngresado').val();
   		var codigoGenerado = $('#codigoGenerado').val();
   		var contra = $('#contra').val();
   		var contra2 = $('#contraConfirmar').val();
   		
+
+
 
   		var funAjax = $.ajax({
 					url:"php/operaciones.php", type:"POST",
@@ -269,6 +271,16 @@ function modificarUsuario(valor)
 
 
   }
+
+
+  function olvidoContraseña()
+  {
+
+  	var nombre =$('#nombre').val();
+  	cambiarContraseña(nombre);
+  }
+
+  
 
   function cambiarContraseña(nom)
   {

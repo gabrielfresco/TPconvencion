@@ -19,6 +19,7 @@
 <label>
 	<li id="lblRecordar"><input type="checkbox" id="recordar">Recordame</li>				
 </label>
+<li><a style="cursor:pointer" onclick="Mostrar('olvidoContra')">¿Olvido su contraseña?</a> </li>
 
 <a id='Login' class='btn btn-info form form-control' onclick="login()"><span class='glyphicon glyphicon-ok'>&nbsp;</span> LogIn </a>
 <a id='Registrarse' class='btn btn-info form form-control' onclick="Mostrar('RegistrarUsuario')"><span class='glyphicon glyphicon-home'>&nbsp;</span> Registrarse </a>

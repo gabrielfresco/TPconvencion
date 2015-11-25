@@ -116,13 +116,23 @@ switch ($quehago) {
 						$codigo .= substr($str,rand(0,62),1);
 					}	
 		
+			$cabecera = "From: Gabriel Fresco<gabriel.fresco@yahoo.com.ar>";	
 
-			mail($usr[0]->mail, 'Codigo para cambiar su contraseña', $codigo);
+			if(mail($usr[0]->mail, 'Codigo para cambiar su contraseña', $codigo, $cabecera)){
+				echo $codigo;
 
+			}
 
-			echo $codigo;
+				else 
+					echo "Error al enviar el mail";
+
+			
 			break;
-		
+	
+	case 'olvidoContra':
+			include("../partes/olvidoContra.php");			
+			break;
+
 
 	case 'TraerInvitado':
 			$invitado = invitado::TraerInvitadoPorId($_POST['id']);		
@@ -136,6 +146,7 @@ switch ($quehago) {
 
 	case 'TraerUsuarioPorMail':
 			$usr = usuario::TraerUsuarioPorNombre($_POST['nombre']);
+
 			if($usr!= null)
 			{
 			if($_POST['contra']== $_POST['contra2'] && $_POST['codigoIngresado'] == $_POST['codigoGenerado'])
