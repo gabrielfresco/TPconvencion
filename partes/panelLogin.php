@@ -5,7 +5,7 @@
 				<label  id="lblOculto"> Bienvenido <?php	echo $_COOKIE["registrado"]; ?> </label>		
 								
 				<a id='Logout' class='btn btn-danger form form-control' onload=""onclick="logout()"><span class='glyphicon glyphicon-off'>&nbsp;</span> LogOut </a>
-				<li><a style="cursor:pointer" onclick="Mostrar('CambiarContra')">Cambiar contraseña</a> </li>
+				<li><a style="cursor:pointer" onclick="cambiarContraseña('<?php echo $_COOKIE["registrado"]; ?>')">Cambiar contraseña</a> </li>
 			</ul>
 
 <?php }else	{ ?>	

@@ -224,28 +224,32 @@ function modificarUsuario(valor)
 			
 		}
 
-  function CambiarContraUsuario()
+  function CambiarContraUsuario(nom)
   {
 
-  		var mail = $('#mail').val();
+  		var codigo = $('#codigoIngresado').val();
+  		var codigoGenerado = $('#codigoGenerado').val();
   		var contra = $('#contra').val();
   		var contra2 = $('#contraConfirmar').val();
+  		
 
-  		var funcionAjax = $.ajax({
+  		var funAjax = $.ajax({
 					url:"php/operaciones.php", type:"POST",
 					data:
 					{
 						queHago:"TraerUsuarioPorMail",
-						mail:mail,
+						codigoIngresado:codigo,
+						codigoGenerado:codigoGenerado,
 						contra:contra,
-						contra2:contra2
+						contra2:contra2,
+						nombre:nom
 
 					}
 				});
 				
 
 
-			   		funcionAjax.done(function(resultado){	
+			   		funAjax.done(function(resultado){	
 
 			  			console.log(resultado);
 			  			if(resultado == true)
@@ -256,14 +260,36 @@ function modificarUsuario(valor)
 					});
 						
 							
-			 		funcionAjax.fail(function(resultado){	
+			 		funAjax.fail(function(resultado){	
 			 			alert("No se ha modificado");
 		
-			 		});						
+			 		});	
+			 	
+			 				
 
 
   }
 
+  function cambiarContraseña(nom)
+  {
+  	Mostrar("CambiarContra");
+
+  		var funcionAjax=$.ajax({
+		url:"php/operaciones.php",
+		type:"post",
+		data:{
+				queHago:"generarContraseña",
+				nombre:nom}
+	});
+	funcionAjax.done(function(retorno){	
+
+        	alert(retorno);
+        	
+            $("#codigoGenerado").val(retorno);
+			
+	});
+
+  }
 
 
   function insertarQueja()

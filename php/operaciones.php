@@ -101,9 +101,28 @@ switch ($quehago) {
 			include("../partes/registrarInvitado.php");
 			break;
 
-	case 'CambiarContra':
-			include("../partes/cambiarContra.php");
+	case 'CambiarContra':			
+			include("../partes/cambiarContra.php");			
 			break;
+
+	case 'generarContraseña':
+			$usr = usuario::TraerUsuarioPorNombre($_POST['nombre']);	
+
+			$str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+			$codigo = "";
+
+					for($i=0;$i<12;$i++) 
+					{
+						$codigo .= substr($str,rand(0,62),1);
+					}	
+		
+
+			mail($usr[0]->mail, 'Codigo para cambiar su contraseña', $codigo);
+
+
+			echo $codigo;
+			break;
+		
 
 	case 'TraerInvitado':
 			$invitado = invitado::TraerInvitadoPorId($_POST['id']);		
@@ -116,10 +135,10 @@ switch ($quehago) {
 		break;
 
 	case 'TraerUsuarioPorMail':
-			$usr = usuario::TraerUsuarioPorMail($_POST['mail']);
+			$usr = usuario::TraerUsuarioPorNombre($_POST['nombre']);
 			if($usr!= null)
 			{
-			if($_POST['contra']== $_POST['contra2'])
+			if($_POST['contra']== $_POST['contra2'] && $_POST['codigoIngresado'] == $_POST['codigoGenerado'])
 			{
 			$contraEncriptada = encriptadora::Encriptar($_POST['contra']);;	
 			$usr[0]->contrasenia = $contraEncriptada;	

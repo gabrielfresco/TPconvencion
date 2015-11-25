@@ -1,7 +1,7 @@
-<form onsubmit="CambiarContraUsuario();return false">	
+<form onsubmit="CambiarContraUsuario('<?php echo $_COOKIE["registrado"]; ?>');return false">	
 	<div class="form-group">
-		<label>Correo electronico</label>
-		<input type="email"  id="mail" title="Ingrese un mail"  class="form-control" placeholder="E mail" required  autofocus="">	
+		<label>Ingrese codigo recibido</label>
+		<input type="text"  id="codigoIngresado" title="Ingrese el codigo recibido"  class="form-control" placeholder="codigo recibido" required  autofocus="">	
 	</div>
 	
 	<div class="form-group">
@@ -14,6 +14,9 @@
 		<input type="password"  minlength="4"  id="contraConfirmar" title="Confirme contraseña"  class="form-control" placeholder="Confirme contraseña" pattern="[a-zA-Z0-9]*+" required="" autofocus="">
 	</div>	
 
+		
+	<input type="hidden" id="codigoGenerado">
+	
 	<input type="submit" class="btn btn-info" value="Cambiar contraseña">
 
 </form>

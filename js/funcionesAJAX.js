@@ -8,8 +8,7 @@ function Mostrar(queMostrar)
 	});
 	funcionAjax.done(function(retorno){
 		$("#content").html(retorno);
-
-			
+      			
 	});
 	funcionAjax.fail(function(retorno){
 		$("#principal").html(":(");
